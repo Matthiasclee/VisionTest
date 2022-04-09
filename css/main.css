@@ -14,3 +14,12 @@ div.visionTest {
 td {
   text-align:center;
 }
+
+body {
+  background-color: white !important;
+}
+
+img {
+  margin-left: 10px;
+  margin-right: 10px;
+}

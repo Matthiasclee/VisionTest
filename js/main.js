@@ -3,9 +3,13 @@ function getRand(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
+function bodyFullScreen() {
+  document.getElementsByTagName('html')[0].requestFullscreen()
+}
 function setRowImgs(r, size, type, allowRepeatingLetters) {
   images = []
-  letters = ['C', 'D', 'H', 'K', 'N', 'O', 'R', 'S', 'V', 'Z']
+  letters_normal = ['C', 'D', 'H', 'K', 'N', 'O', 'R', 'S', 'V', 'Z']
+  letters_mirrored = ['C', 'D', 'H', 'K', 'N', 'O', 'R', 'S']
 
   for (let i = 0; i < 5; i++) {
     e = document.getElementById(`r${r}c${i+1}`)
@@ -16,6 +20,11 @@ function setRowImgs(r, size, type, allowRepeatingLetters) {
 
   for (let n = 0; n < images.length; n++) {
     i = images[n]
+    if (type == 'normal') {
+      letters = letters_normal
+    } else {
+      letters = letters_mirrored
+    }
 
     foundGoodLetter = false
     do {
@@ -38,6 +47,20 @@ function setRowImgs(r, size, type, allowRepeatingLetters) {
 
     i.src = `photos/${type}/C${l}${s}.bmp`
   }
+
+  return true
+}
+
+function fill(size, type, allowRepeatingLetters) {
+  x=1
+  
+  while (x < 6) {
+    setRowImgs(x, size, type, allowRepeatingLetters)
+
+    x++
+  }
+
+  document.getElementById('size').innerHTML=size
 
   return true
 }
