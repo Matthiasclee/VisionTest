@@ -1,15 +1,13 @@
 table.visionTest {
-margin: auto;
-width: 100%;
+  margin: auto;
+  width: 100%;
 }
 
 div.visionTest {
-  position: absolute;
+  position: fixed;
+  left: 50%;
   top: 50%;
-  left: 0%;
-  right: 0%;
-  transform: translate(0, -50%);
-  padding: 10px;
+  transform: translate(-50%, -50%);
 }
 
 td {
@@ -31,6 +29,6 @@ img {
 }
 
 .mirrored {
-  -webkit-transform: scaleX(-1) !important;
-  transform: scaleX(-1) !important;
+  -webkit-transform: translate(-50%, -50%) scaleX(-1) !important;
+  transform: translate(-50%, -50%) scaleX(-1) !important;
 }
