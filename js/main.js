@@ -12,6 +12,7 @@ function clearAll() {
     for (let i = 0; i < 6; i++) {
       e = document.getElementById(`r${x}c${i+1}`)
       e.style.display = 'none'
+      e.style.transform = "rotate(0deg)";
     }
 
     x++
@@ -72,6 +73,11 @@ function drawLine(r, type, letters, random = false) {
           }
         }
         i.src  = `photos/symbols/s${l}i60.bmp`
+      } else if (mode == 'e') {
+        i.src = 'photos/rotating_e/ei60.bmp'
+
+        rotations = ['0', '90', '180', '270']
+        i.style.transform = `rotate(${rotations[getRand(0, 3)]}deg)`;
       }
     } else {
       if (mode == 'letter') {

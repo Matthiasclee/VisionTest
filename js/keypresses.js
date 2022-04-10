@@ -35,6 +35,11 @@ $(document).bind('keypress', function(e){
        return
      }
      if (mode == 'symbol') {
+       mode = 'e'
+       fill(cSize)
+       return
+     }
+     if (mode == 'e') {
        mode = 'letter'
        fill(cSize)
        return
