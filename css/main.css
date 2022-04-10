@@ -23,4 +23,5 @@ body {
 img {
   margin-left: 10px;
   margin-right: 10px;
+  image-rendering: -webkit-optimize-contrast;
 }
