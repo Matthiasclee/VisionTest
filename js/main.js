@@ -60,7 +60,7 @@ function drawLine(r, type, letters, random = false) {
           }
         }
 
-        i.src = `photos/numbers/${l}I60.bmp`
+        i.src = `photos/numbers/${l}i60.bmp`
       } else if (mode == 'symbol') {
         nums = [1, 2, 3, 4, 5, 6, 7, 9]
 
