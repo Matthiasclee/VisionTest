@@ -48,6 +48,20 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+   if(e.key == '!') {
+     vt = document.getElementsByClassName('visionTest')[0]
+
+     if (mirrored) {
+       vt.classList.remove('mirrored')
+       mirrored = false
+     } else {
+       vt.classList.add('mirrored')
+       mirrored = true
+     }
+   }
+});
+
+$(document).bind('keypress', function(e){
   if(e.key == 'l') {
     if (multiLine) {
       multiLine = false

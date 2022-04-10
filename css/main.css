@@ -29,3 +29,8 @@ img {
   margin-right: 10px;
   image-rendering: -webkit-optimize-contrast;
 }
+
+.mirrored {
+  -webkit-transform: scaleX(-1) !important;
+  transform: scaleX(-1) !important;
+}
