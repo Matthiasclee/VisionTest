@@ -61,12 +61,16 @@ function drawLine(r, type, letters, random = false) {
   return true
 }
 
-function line(r, size, random = false) {
-  drawLine(r, 'normal', lettersInLine(size), random)
+var cSize = 1
+var multiLine = true
 
+function line(r, size, random = false) {
   if (r==1) {document.getElementById('size').innerHTML = size}
 
-  setRowSize(r, (sizeOf10() * (size/10)))
+  if (!(!multiLine && r != 1)) {
+    drawLine(r, 'normal', lettersInLine(size), random)
+    setRowSize(r, (sizeOf10() * (size/10)))
+  }
 }
 
 function setRowSize(row, size) {
@@ -82,8 +86,6 @@ function setRowSize(row, size) {
     x++
   }
 }
-
-var cSize = 1
 
 function fill(size, random) {
   clearAll();

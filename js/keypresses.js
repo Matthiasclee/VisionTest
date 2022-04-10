@@ -23,6 +23,17 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+  if(e.key == 'l') {
+    if (multiLine) {
+      multiLine = false
+    } else {
+      multiLine = true
+    }
+    fill(cSize)
+  }
+});
+
+$(document).bind('keypress', function(e){
    if(['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(e.key)) {
      if (e.key === '1') {fill(1)}
      if (e.key === '2') {fill(3)}
