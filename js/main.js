@@ -79,7 +79,18 @@ function drawLine(r, type, letters, random = false) {
         i.src = 'photos/rotating_e/ei60.bmp'
 
         rotations = ['0', '90', '180', '270']
-        i.style.transform = `rotate(${rotations[getRand(0, 3)]}deg)`;
+
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = rotations[getRand(0, letters.length-1)]
+
+          if (!usedLetters.includes(possible)) {
+            l = possible
+            foundGoodLetter = true
+            usedLetters[usedLetters.length] = l
+          }
+        }
+        i.style.transform = `rotate(${l}deg)`;
       }
     } else {
       if (mode == 'letter') {
@@ -112,7 +123,9 @@ function line(r, size, random = false) {
   if (r==1) {document.getElementById('size').innerHTML = size}
 
   if (!(!multiLine && r != 1)) {
-    drawLine(r, 'normal', lettersInLine(size), random)
+    if (mode != 'e') {ltrs = lettersInLine(size)}
+    if (mode == 'e') {ltrs = lettersInELine(size)}
+    drawLine(r, 'normal', ltrs, random)
     setRowSize(r, (sizeOf10() * (size/10)))
   }
 }
