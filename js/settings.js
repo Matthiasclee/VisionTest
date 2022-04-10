@@ -1,5 +1,5 @@
 function sizeOf10() {
-  return '5'
+  return '10'
 }
 
 function lettersInLine(line) {
