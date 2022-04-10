@@ -51,7 +51,7 @@ function drawLine(r, type, letters, random = false) {
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
-          possible = nums[getRand(0, letters.length-1)]
+          possible = nums[getRand(0, nums.length-1)]
 
           if (!usedLetters.includes(possible)) {
             l = possible
@@ -66,7 +66,7 @@ function drawLine(r, type, letters, random = false) {
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
-          possible = nums[getRand(0, letters.length-1)]
+          possible = nums[getRand(0, nums.length-1)]
 
           if (!usedLetters.includes(possible)) {
             l = possible
@@ -82,7 +82,7 @@ function drawLine(r, type, letters, random = false) {
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
-          possible = rotations[getRand(0, letters.length-1)]
+          possible = rotations[getRand(0, rotations.length-1)]
 
           if (!usedLetters.includes(possible)) {
             l = possible
