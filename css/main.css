@@ -20,6 +20,10 @@ body {
   background-color: white !important;
 }
 
+html {
+  cursor: none;
+}
+
 img {
   margin-left: 10px;
   margin-right: 10px;
