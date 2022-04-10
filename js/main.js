@@ -45,7 +45,7 @@ function drawLine(r, type, letters, random = false) {
 
     if (!random) {
       if (mode == 'letter') {
-        i.src = `photos/normal/${l}i60.bmp`
+        i.src = `photos/normal/${l.toLowerCase()}i60.bmp`
       } else if (mode == 'number') {
         nums = [2, 3, 4, 5, 6, 7, 9]
 
