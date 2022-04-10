@@ -66,8 +66,11 @@ function setRowSize(row, size) {
   }
 }
 
+var cSize = 1
+
 function fill(size) {
   clearAll();
+  cSize = size
 
   if (size == '1') {
     line(1, 10)
@@ -150,4 +153,16 @@ function fill(size) {
   }
 
   return true
+}
+
+function up() {
+  if (cSize != 20) {
+    fill(cSize+1)
+  }
+}
+
+function down() {
+  if (cSize != 1) {
+    fill(cSize-1)
+  }
 }
