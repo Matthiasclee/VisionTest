@@ -17,6 +17,7 @@ function clearAll() {
     x++
   }
 }
+var mode = 'letter'
 function drawLine(r, type, letters, random = false) {
   images = []
 
@@ -37,23 +38,58 @@ function drawLine(r, type, letters, random = false) {
 
     l = letters[n]
 
+    if (mode != 'letter') {random = false}
+
     if (!random) {
-      i.src = `photos/normal/${l}i60.bmp`
+      if (mode == 'letter') {
+        i.src = `photos/normal/${l}i60.bmp`
+      } else if (mode == 'number') {
+        nums = [2, 3, 4, 5, 6, 7, 9]
+
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = nums[getRand(0, letters.length-1)]
+
+          if (!usedLetters.includes(possible)) {
+            l = possible
+            foundGoodLetter = true
+            usedLetters[usedLetters.length] = l
+          }
+        }
+
+        i.src = `photos/numbers/${l}I60.bmp`
+      } else if (mode == 'symbol') {
+        nums = [1, 2, 3, 4, 5, 6, 7, 9]
+
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = nums[getRand(0, letters.length-1)]
+
+          if (!usedLetters.includes(possible)) {
+            l = possible
+            foundGoodLetter = true
+            usedLetters[usedLetters.length] = l
+          }
+        }
+        i.src  = `photos/symbols/s${l}i60.bmp`
+      }
     } else {
-      letters = ['u', 'a', 'c', 'o', 'k', 'g', 's', 'e', 'l', 'x', 't', 'b', 'n', 'v', 'z', 'r', 'f', 'p', 'd', 'h']
+      if (mode == 'letter') {
+        letters = ['u', 'a', 'c', 'o', 'k', 'g', 's', 'e', 'l', 'x', 't', 'b', 'n', 'v', 'z', 'r', 'f', 'p', 'd', 'h']
 
-      foundGoodLetter = false
-      while (!foundGoodLetter) {
-        possible = letters[getRand(0, letters.length-1)]
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = letters[getRand(0, letters.length-1)]
 
-        if (!usedLetters.includes(possible)) {
-          l = possible
-          foundGoodLetter = true
-          usedLetters[usedLetters.length] = l
+          if (!usedLetters.includes(possible)) {
+            l = possible
+            foundGoodLetter = true
+            usedLetters[usedLetters.length] = l
+          }
         }
       }
 
-      i.src = `photos/normal/${l}i60.bmp`
+        i.src = `photos/normal/${l}i60.bmp`
     }
     i.style.display = 'inline'
   }

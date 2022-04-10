@@ -23,6 +23,26 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+   if(e.key == 'm') {
+     if (mode == 'letter') {
+       mode = 'number'
+       fill(cSize)
+       return
+     }
+     if (mode == 'number') {
+       mode = 'symbol'
+       fill(cSize)
+       return
+     }
+     if (mode == 'symbol') {
+       mode = 'letter'
+       fill(cSize)
+       return
+     }
+   }
+});
+
+$(document).bind('keypress', function(e){
   if(e.key == 'l') {
     if (multiLine) {
       multiLine = false
