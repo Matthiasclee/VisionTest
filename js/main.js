@@ -17,7 +17,7 @@ function clearAll() {
     x++
   }
 }
-function drawLine(r, type, letters) {
+function drawLine(r, type, letters, random = false) {
   images = []
 
   for (let i = 0; i < 6; i++) {
@@ -37,15 +37,32 @@ function drawLine(r, type, letters) {
 
     l = letters[n]
 
-    i.src = `photos/normal/${l}i60.bmp`
+    if (!random) {
+      i.src = `photos/normal/${l}i60.bmp`
+    } else {
+      letters = ['u', 'a', 'c', 'o', 'k', 'g', 's', 'e', 'l', 'x', 't', 'b', 'n', 'v', 'z', 'r', 'f', 'p', 'd', 'h']
+
+      foundGoodLetter = false
+      while (!foundGoodLetter) {
+        possible = letters[getRand(0, letters.length-1)]
+
+        if (!usedLetters.includes(possible)) {
+          l = possible
+          foundGoodLetter = true
+          usedLetters[usedLetters.length] = l
+        }
+      }
+
+      i.src = `photos/normal/${l}i60.bmp`
+    }
     i.style.display = 'inline'
   }
 
   return true
 }
 
-function line(r, size) {
-  drawLine(r, 'normal', lettersInLine(size))
+function line(r, size, random = false) {
+  drawLine(r, 'normal', lettersInLine(size), random)
 
   if (r==1) {document.getElementById('size').innerHTML = size}
 
@@ -68,88 +85,88 @@ function setRowSize(row, size) {
 
 var cSize = 1
 
-function fill(size) {
+function fill(size, random) {
   clearAll();
   cSize = size
 
   if (size == '1') {
-    line(1, 10)
+    line(1, 10, random)
   }
   if (size == '2') {
-    line(1, 15)
-    line(2, 10)
+    line(1, 15, random)
+    line(2, 10, random)
   }
   if (size == '3') {
-    line(1, 20)
-    line(2, 15)
-    line(3, 10)
+    line(1, 20, random)
+    line(2, 15, random)
+    line(3, 10, random)
   }
   if (size == '4') {
-    line(1, 25)
-    line(2, 20)
-    line(3, 15)
-    line(4, 10)
+    line(1, 25, random)
+    line(2, 20, random)
+    line(3, 15, random)
+    line(4, 10, random)
   }
   if (size == '5') {
-    line(1, 30)
-    line(2, 25)
-    line(3, 20)
-    line(4, 15)
+    line(1, 30, random)
+    line(2, 25, random)
+    line(3, 20, random)
+    line(4, 15, random)
   }
   if (size == '6') {
-    line(1, 40)
-    line(2, 30)
-    line(3, 25)
-    line(4, 20)
+    line(1, 40, random)
+    line(2, 30, random)
+    line(3, 25, random)
+    line(4, 20, random)
   }
   if (size == '7') {
-    line(1, 50)
-    line(2, 40)
-    line(3, 30)
+    line(1, 50, random)
+    line(2, 40, random)
+    line(3, 30, random)
   }
   if (size == '8') {
-    line(1, 60)
-    line(2, 50)
-    line(3, 40)
+    line(1, 60, random)
+    line(2, 50, random)
+    line(3, 40, random)
   }
   if (size == '9') {
-    line(1, 70)
-    line(2, 60)
+    line(1, 70, random)
+    line(2, 60, random)
   }
   if (size == '10') {
-    line(1, 80)
-    line(2, 70)
+    line(1, 80, random)
+    line(2, 70, random)
   }
   if (size == '11') {
-    line(1, 100)
-    line(2, 80)
+    line(1, 100, random)
+    line(2, 80, random)
   }
   if (size == '12') {
-    line(1, 125)
+    line(1, 125, random)
   }
   if (size == '13') {
-    line(1, 150)
+    line(1, 150, random)
   }
   if (size == '14') {
-    line(1, 200)
+    line(1, 200, random)
   }
   if (size == '15') {
-    line(1, 250)
+    line(1, 250, random)
   }
   if (size == '16') {
-    line(1, 300)
+    line(1, 300, random)
   }
   if (size == '17') {
-    line(1, 400)
+    line(1, 400, random)
   }
   if (size == '18') {
-    line(1, 500)
+    line(1, 500, random)
   }
   if (size == '19') {
-    line(1, 630)
+    line(1, 630, random)
   }
   if (size == '20') {
-    line(1, 800)
+    line(1, 800, random)
   }
 
   return true
