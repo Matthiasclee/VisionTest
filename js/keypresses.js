@@ -23,6 +23,34 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+    x = document.getElementById('sizeOf10')
+   if(e.key == '+' && x.style.display == 'inline') {
+     sz10++;
+     fill(cSize)
+   }
+});
+
+$(document).bind('keypress', function(e){
+    x = document.getElementById('sizeOf10')
+   if(e.key == '-' && x.style.display == 'inline') {
+     sz10--;
+     fill(cSize)
+   }
+});
+
+$(document).bind('keypress', function(e){
+  if(e.key == '@') {
+    e = document.getElementById('sizeOf10')
+
+    if (e.style.display == 'none') {
+      e.style.display = 'inline'
+    } else {
+      e.style.display = 'none'
+    }
+  }
+});
+
+$(document).bind('keypress', function(e){
    if(e.key == 'm') {
      if (mode == 'letter') {
        mode = 'number'

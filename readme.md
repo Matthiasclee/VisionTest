@@ -1,8 +1,8 @@
 # VisionTest
 
 ### Calibration
-Open up the `js/settings.js` file, and change the value of the return in the `sizeOf10()` function until the letters in the `20/10` chart in fullscreen mode are exactly 0.5 CM tall.
-Then do `v*(r/20)` where `r` is the length someone will be sitting from the monitor, and `v` is the value you have in `settings.js`, and set the value in `settings.js` to the result of that.
+Open up `index.html`, and enter fullscreen mode with `f`. Enable the pixel counter with `@`. Now use the `+` and `-` keys to change the size of the text until the letters in the 20/10 line are exactly 0.5 CM tall.
+Then do `v*(r/20)` where `r` is the length someone will be sitting from the monitor, and `v` is the number in the pixel counter, and set the value in `settings.js` to the result of that.
 
 ### Other settings
 
@@ -19,5 +19,8 @@ You can toggle mirroring on and off by pressing `!`.
 * `m`: Change mode (normal letters, numbers, symbols, rotating E)
 * `r`: Randomizes lines
 * `f`: Enter fullscreen mode
+* `@`: Toggle pixel counter
+* `+`: Make text larger
+* `-`: Make text smaller
 * `1-9`: Goes up and down to different sizes
 * `!`: Toggles mirroring

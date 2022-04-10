@@ -1,5 +1,8 @@
+var sz10 = 10.0
+
 function sizeOf10() {
-  return '10'
+  document.getElementById('sizeOf10').innerHTML = sz10 + 'px'
+  return sz10
 }
 
 function lettersInLine(line) {
