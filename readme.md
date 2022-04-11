@@ -12,7 +12,7 @@ You can toggle mirroring on and off by pressing `!`.
 * `l`: Toggle multi-line mode
 * `m`: Change mode (normal letters, numbers, symbols, rotating E)
 * `r`: Randomizes lines
-* `f`: Enter fullscreen mode
+* `f`: Toggle fullscreen mode
 * `@`: Toggle pixel counter
 * `+`: Make text larger
 * `-`: Make text smaller

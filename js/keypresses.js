@@ -1,3 +1,5 @@
+fullscreen = false
+
 $(document).bind('keypress', function(e){
    if(e.key == 'u') {
      up()
@@ -11,8 +13,10 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+  b = document.getElementById('body')
    if(e.key == 'f') {
-     bodyFullScreen()
+     if (!fullscreen) {fullscreen=true;bodyFullScreen();b.classList.add('nocursor');return}
+     if (fullscreen) {fullscreen=false;document.exitFullscreen();b.classList.remove('nocursor');return}
    }
 });
 
