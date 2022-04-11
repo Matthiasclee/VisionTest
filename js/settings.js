@@ -1,8 +1,13 @@
-var sz10 = 10.0
+if (!localStorage.pxsize) {
+  localStorage.pxsize = 10
+}
+if (!localStorage.mirrored) {
+  localStorage.mirrored = 0
+}
 
 function sizeOf10() {
-  document.getElementById('sizeOf10').innerHTML = sz10 + 'px'
-  return sz10
+  document.getElementById('sizeOf10').innerHTML = localStorage.pxsize + 'px'
+  return localStorage.pxsize
 }
 
 function lettersInLine(line) {

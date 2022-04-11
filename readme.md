@@ -1,11 +1,5 @@
 # VisionTest
 
-### Calibration
-Open up `index.html`, and enter fullscreen mode with `f`. Enable the pixel counter with `@`. Now use the `+` and `-` keys to change the size of the text until the letters in the 20/10 line are exactly 0.5 CM tall.
-Then do `v*(r/20)` where `r` is the length someone will be sitting from the monitor, and `v` is the number in the pixel counter, and set the value in `settings.js` to the result of that.
-
-### Other settings
-
 #### Default lines
 In the `js/settings.js` you can change the default letters in a line. You can also change the amount of `E`s in the rotating E lines.
 

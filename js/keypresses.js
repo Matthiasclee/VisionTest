@@ -25,7 +25,7 @@ $(document).bind('keypress', function(e){
 $(document).bind('keypress', function(e){
     x = document.getElementById('sizeOf10')
    if(e.key == '+' && x.style.display == 'inline') {
-     sz10++;
+     localStorage.pxsize++;
      fill(cSize)
    }
 });
@@ -33,7 +33,7 @@ $(document).bind('keypress', function(e){
 $(document).bind('keypress', function(e){
     x = document.getElementById('sizeOf10')
    if(e.key == '-' && x.style.display == 'inline') {
-     sz10--;
+     localStorage.pxsize--;
      fill(cSize)
    }
 });
@@ -79,12 +79,12 @@ $(document).bind('keypress', function(e){
    if(e.key == '!') {
      vt = document.getElementsByClassName('visionTest')[0]
 
-     if (mirrored) {
+     if (parseInt(localStorage.mirrored)) {
        vt.classList.remove('mirrored')
-       mirrored = false
+       localStorage.mirrored = 0
      } else {
        vt.classList.add('mirrored')
-       mirrored = true
+       localStorage.mirrored = 1
      }
    }
 });
