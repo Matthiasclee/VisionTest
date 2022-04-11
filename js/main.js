@@ -124,7 +124,7 @@ function line(r, size, random = false) {
     if (mode != 'e') {ltrs = lettersInLine(size)}
     if (mode == 'e') {ltrs = lettersInELine(size)}
     drawLine(r, 'normal', ltrs, random)
-    setRowSize(r, (sizeOf10() * (size/10)))
+    setRowSize(r, (sizeOf20() * (size/20)))
   }
 }
 

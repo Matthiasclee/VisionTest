@@ -5,8 +5,8 @@ if (!localStorage.mirrored) {
   localStorage.mirrored = 0
 }
 
-function sizeOf10() {
-  document.getElementById('sizeOf10').innerHTML = localStorage.pxsize + 'px'
+function sizeOf20() {
+  document.getElementById('sizeOf20').innerHTML = localStorage.pxsize + 'px'
   return localStorage.pxsize
 }
 

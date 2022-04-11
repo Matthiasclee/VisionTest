@@ -23,7 +23,7 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
-    x = document.getElementById('sizeOf10')
+    x = document.getElementById('sizeOf20')
    if(e.key == '+' && x.style.display == 'inline') {
      localStorage.pxsize++;
      fill(cSize)
@@ -31,7 +31,7 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
-    x = document.getElementById('sizeOf10')
+    x = document.getElementById('sizeOf20')
    if(e.key == '-' && x.style.display == 'inline') {
      localStorage.pxsize--;
      fill(cSize)
@@ -40,7 +40,7 @@ $(document).bind('keypress', function(e){
 
 $(document).bind('keypress', function(e){
   if(e.key == '@') {
-    e = document.getElementById('sizeOf10')
+    e = document.getElementById('sizeOf20')
 
     if (e.style.display == 'none') {
       e.style.display = 'inline'
