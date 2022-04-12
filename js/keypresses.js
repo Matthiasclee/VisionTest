@@ -54,28 +54,32 @@ $(document).bind('keypress', function(e){
   }
 });
 
+function tglMode() {
+  if (mode == 'letter') {
+    mode = 'number'
+    fill(cSize)
+    return
+  }
+  if (mode == 'number') {
+    mode = 'symbol'
+    fill(cSize)
+    return
+  }
+  if (mode == 'symbol') {
+    mode = 'e'
+    fill(cSize)
+    return
+  }
+  if (mode == 'e') {
+    mode = 'letter'
+    fill(cSize)
+    return
+  }
+}
+
 $(document).bind('keypress', function(e){
    if(e.key == 'm') {
-     if (mode == 'letter') {
-       mode = 'number'
-       fill(cSize)
-       return
-     }
-     if (mode == 'number') {
-       mode = 'symbol'
-       fill(cSize)
-       return
-     }
-     if (mode == 'symbol') {
-       mode = 'e'
-       fill(cSize)
-       return
-     }
-     if (mode == 'e') {
-       mode = 'letter'
-       fill(cSize)
-       return
-     }
+     tglMode()
    }
 });
 
@@ -93,14 +97,18 @@ $(document).bind('keypress', function(e){
    }
 });
 
+function tglLine() {
+  if (multiLine) {
+    multiLine = false
+  } else {
+    multiLine = true
+  }
+  fill(cSize)
+}
+
 $(document).bind('keypress', function(e){
   if(e.key == 'l') {
-    if (multiLine) {
-      multiLine = false
-    } else {
-      multiLine = true
-    }
-    fill(cSize)
+    tglLine();
   }
 });
 
