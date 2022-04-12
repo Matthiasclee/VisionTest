@@ -83,6 +83,24 @@ $(document).bind('keypress', function(e){
    }
 });
 
+sgl = false
+
+function tglSingle() {
+  if (sgl) {
+    sgl = false
+  } else {
+    sgl = true
+  }
+
+  fill(cSize)
+}
+
+$(document).bind('keypress', function(e){
+   if(e.key == 's') {
+     tglSingle()
+   }
+});
+
 $(document).bind('keypress', function(e){
    if(e.key == '!') {
      vt = document.getElementsByClassName('visionTest')[0]

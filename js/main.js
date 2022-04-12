@@ -123,6 +123,7 @@ function line(r, size, random = false) {
   if (!(!multiLine && r != 1)) {
     if (mode != 'e') {ltrs = lettersInLine(size)}
     if (mode == 'e') {ltrs = lettersInELine(size)}
+    if (sgl) {ltrs = ltrs[0]}
     drawLine(r, 'normal', ltrs, random)
     setRowSize(r, (sizeOf20() * (size/20)))
   }
