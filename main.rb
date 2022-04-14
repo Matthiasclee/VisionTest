@@ -4,11 +4,15 @@ require 'selenium-webdriver'
 driver = Selenium::WebDriver.for :firefox
 driver.navigate.to 'file://' + Dir.pwd + '/index.html'
 
-oncode '01' do; driver.execute_script 'fill(cSize, true)' end
+oncode '1B' do; driver.execute_script 'fill(cSize, true)' end
 oncode '03' do; driver.execute_script 'up()' end
 oncode '04' do; driver.execute_script 'down()' end
 oncode '17' do; driver.execute_script 'up()' end
 oncode '1F' do; driver.execute_script 'down()' end
+oncode '1C' do; driver.execute_script 'up()' end
+oncode '1A' do; driver.execute_script 'down()' end
+oncode '05' do; driver.execute_script 'up()' end
+oncode '06' do; driver.execute_script 'down()' end
 oncode '07' do; driver.execute_script 'tglLine()' end
 oncode '08' do; driver.execute_script 'tglSingle()' end
 oncode '0A' do; driver.execute_script 'while (mode != "letter") {tglMode()}' end
