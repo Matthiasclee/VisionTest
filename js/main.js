@@ -145,6 +145,10 @@ function setRowSize(row, size) {
 
 function fill(size, random) {
   clearAll();
+  
+  if (cSize == size) {
+    random = true
+  }
   cSize = size
 
   if (size == '1') {
