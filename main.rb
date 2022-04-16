@@ -19,14 +19,14 @@ oncode '0A' do; driver.execute_script 'while (mode != "letter") {tglMode()}' end
 oncode '0B' do; driver.execute_script 'while (mode != "number") {tglMode()}' end
 oncode '0C' do; driver.execute_script 'while (mode != "symbol") {tglMode()}' end
 oncode '0F' do; driver.execute_script 'while (mode != "e") {tglMode()}' end
-oncode '41' do; driver.execute_script 'fill(1)' end
-oncode '42' do; driver.execute_script 'fill(3)' end
-oncode '43' do; driver.execute_script 'fill(5)' end
-oncode '45' do; driver.execute_script 'fill(6)' end
-oncode '46' do; driver.execute_script 'fill(8)' end
-oncode '47' do; driver.execute_script 'fill(10)' end
-oncode '49' do; driver.execute_script 'fill(11)' end
-oncode '4A' do; driver.execute_script 'fill(14)' end
-oncode '4B' do; driver.execute_script 'fill(17)' end
+oncode '41' do; driver.execute_script 'fill(1, false, true)' end
+oncode '42' do; driver.execute_script 'fill(3, false, true)' end
+oncode '43' do; driver.execute_script 'fill(5, false, true)' end
+oncode '45' do; driver.execute_script 'fill(6, false, true)' end
+oncode '46' do; driver.execute_script 'fill(8, false, true)' end
+oncode '47' do; driver.execute_script 'fill(10, false, true)' end
+oncode '49' do; driver.execute_script 'fill(11, false, true)' end
+oncode '4A' do; driver.execute_script 'fill(14, false, true)' end
+oncode '4B' do; driver.execute_script 'fill(17, false, true)' end
 
 start_listener

@@ -143,10 +143,10 @@ function setRowSize(row, size) {
   }
 }
 
-function fill(size, random) {
+function fill(size, random, buttonPress = false) {
   clearAll();
   
-  if (cSize == size) {
+  if (cSize == size && buttonPress) {
     random = true
   }
   cSize = size
