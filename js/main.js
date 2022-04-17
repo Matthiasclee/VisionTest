@@ -43,6 +43,8 @@ function drawLine(r, type, letters, spacing, random = false) {
 
     i.style.marginLeft = `${spacing}px`
     i.style.marginRight = `${spacing}px`
+    i.style.marginTop = `${spacing}px`
+    i.style.marginBottom = `${spacing}px`
 
     if (!random) {
       if (mode == 'letter') {
