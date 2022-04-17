@@ -37,6 +37,33 @@ function lettersInLine(line) {
   return lines[line]
 }
 
+function spacingInLine(line) {
+  lines = {
+    10: "10",
+    15: "13",
+    20: "15",
+    25: "17",
+    30: "19",
+    40: "23",
+    50: "26",
+    60: "28",
+    70: "32",
+    80: "39",
+    100: "47",
+    125: "55",
+    150: "60",
+    200: "65",
+    250: "10",
+    300: "10",
+    400: "10",
+    500: "10",
+    630: "10",
+    800: "10"
+  }
+
+  return lines[line]
+}
+
 function lettersInELine(line) {
   lines = {
     10: ['E', 'E', 'E', 'E'],

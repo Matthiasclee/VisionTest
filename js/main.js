@@ -19,7 +19,7 @@ function clearAll() {
   }
 }
 var mode = 'letter'
-function drawLine(r, type, letters, random = false) {
+function drawLine(r, type, letters, spacing, random = false) {
   images = []
 
   for (let i = 0; i < 6; i++) {
@@ -40,6 +40,9 @@ function drawLine(r, type, letters, random = false) {
     l = letters[n]
 
     if (mode != 'letter') {random = false}
+
+    i.style.marginLeft = `${spacing}px`
+    i.style.marginRight = `${spacing}px`
 
     if (!random) {
       if (mode == 'letter') {
@@ -123,8 +126,9 @@ function line(r, size, random = false) {
   if (!(!multiLine && r != 1)) {
     if (mode != 'e') {ltrs = lettersInLine(size)}
     if (mode == 'e') {ltrs = lettersInELine(size)}
+    spacing = spacingInLine(size)
     if (sgl) {ltrs = ltrs[0]}
-    drawLine(r, 'normal', ltrs, random)
+    drawLine(r, 'normal', ltrs, spacing, random)
     setRowSize(r, (sizeOf20() * (size/20)))
   }
 }
