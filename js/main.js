@@ -251,3 +251,14 @@ function down() {
     fill(cSize-1)
   }
 }
+
+function screenSaver() {
+  clearAll();
+  document.getElementById('size').innerHTML = ''
+  
+  x=document.getElementById('r1c1')
+  x.style.display = 'inline'
+  x.src = 'photos/screensaver.png'
+  x.height = '275'
+  x.width = '714'
+}

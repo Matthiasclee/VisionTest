@@ -28,5 +28,8 @@ oncode '47' do; driver.execute_script 'fill(10, false, true)' end
 oncode '49' do; driver.execute_script 'fill(11, false, true)' end
 oncode '4A' do; driver.execute_script 'fill(14, false, true)' end
 oncode '4B' do; driver.execute_script 'fill(17, false, true)' end
+oncode '00' do; driver.execute_script 'screenSaver();' end
+oncode '01' do; driver.execute_script 'screenSaver();' end
+oncode '02' do; driver.execute_script 'screenSaver();' end
 
 start_listener
