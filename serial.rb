@@ -1,4 +1,5 @@
 require 'serialport'
+require_relative 'ser_port.rb'
 
 $codes = {}
 
@@ -7,7 +8,7 @@ def oncode(code, &block)
 end
 
 def start_listener
-  ser = SerialPort.new("/dev/tty.usbserial-A107IK35", 9600, 8, 1, SerialPort::NONE)
+  ser = SerialPort.new($ser_port, 9600, 8, 1, SerialPort::NONE)
 
   cdat = ''
   rcvstat = 0 # not started
