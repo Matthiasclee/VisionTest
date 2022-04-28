@@ -13,6 +13,12 @@ $(document).bind('keypress', function(e){
 });
 
 $(document).bind('keypress', function(e){
+   if(e.key == 'c') {
+     fill("calibration")
+   }
+});
+
+$(document).bind('keypress', function(e){
   b = document.getElementById('body')
    if(e.key == 'f') {
      if (!fullscreen) {fullscreen=true;bodyFullScreen();b.classList.add('nocursor');return}

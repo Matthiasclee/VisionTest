@@ -15,6 +15,7 @@ You can toggle mirroring on and off by pressing `!`.
 * `r`: Randomizes lines
 * `f`: Toggle fullscreen mode
 * `@`: Toggle pixel counter
+* `c`: Calibration mode
 * `+`: Make text larger
 * `-`: Make text smaller
 * `1-9`: Goes up and down to different sizes

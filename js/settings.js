@@ -31,7 +31,8 @@ function lettersInLine(line) {
     400: ['B'],
     500: ['K'],
     630: ['H'],
-    800: ['C']
+    800: ['C'],
+    "calibration": ['E'] 
   }
 
   return lines[line]
@@ -58,7 +59,8 @@ function spacingInLine(line) {
     400: "10",
     500: "10",
     630: "10",
-    800: "10"
+    800: "10",
+    "calibration": ['E']
   }
 
   return lines[line]
@@ -85,7 +87,8 @@ function lettersInELine(line) {
     400: ['E'],
     500: ['E'],
     630: ['E'],
-    800: ['E']
+    800: ['E'],
+    "calibration": ["E"]
   }
 
   return lines[line]

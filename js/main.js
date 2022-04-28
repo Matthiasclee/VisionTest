@@ -131,7 +131,11 @@ function line(r, size, random = false) {
     spacing = spacingInLine(size)
     if (sgl) {ltrs = ltrs[0]}
     drawLine(r, 'normal', ltrs, spacing, random)
-    setRowSize(r, (sizeOf20() * (size/20)))
+    if (size != "calibration") {
+      setRowSize(r, (sizeOf20() * (size/20)))
+    } else {
+      setRowSize(r, (sizeOf20() * (124/20)))
+    }
   }
 }
 
@@ -236,17 +240,24 @@ function fill(size, random, buttonPress = false) {
   if (size == '20') {
     line(1, 800, random)
   }
+  if (size == 'calibration'){
+    line(1, 'calibration', false)
+  }
 
   return true
 }
 
 function up() {
+  if (cSize == "calibration") {cSize = 3}
+
   if (cSize != 20) {
     fill(cSize+1)
   }
 }
 
 function down() {
+  if (cSize == "calibration") {cSize = 3}
+
   if (cSize != 1) {
     fill(cSize-1)
   }
