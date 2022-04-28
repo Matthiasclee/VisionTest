@@ -3,6 +3,8 @@
 #### Default lines
 In the `js/settings.js` you can change the default letters in a line. You can also change the amount of `E`s in the rotating E lines.
 
+Install instructions can be found [here](https://docs.google.com/document/d/1V24E2XJrsKxMPQbbYANHKpaTNGKzV2zQdXEse5a44-U)
+
 #### Mirroring
 You can toggle mirroring on and off by pressing `!`.
 
