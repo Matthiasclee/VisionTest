@@ -17,6 +17,7 @@ oncode '05' do; driver.execute_script 'up()' end
 oncode '06' do; driver.execute_script 'down()' end
 oncode '07' do; driver.execute_script 'tglLine()' end
 oncode '08' do; driver.execute_script 'tglSingle()' end
+oncode '09' do; driver.execute_script 'tglSizeNum()' end
 oncode '0A' do; driver.execute_script 'while (mode != "letter") {tglMode()}' end
 oncode '0B' do; driver.execute_script 'while (mode != "number") {tglMode()}' end
 oncode '0C' do; driver.execute_script 'while (mode != "symbol") {tglMode()}' end

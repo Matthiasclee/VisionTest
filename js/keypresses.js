@@ -1,4 +1,12 @@
 fullscreen = false
+sizenum = true
+
+
+$(document).bind('keypress', function(e){
+   if(e.key == 'n') {
+     tglSizeNum()
+   }
+});
 
 $(document).bind('keypress', function(e){
    if(e.key == 'u') {

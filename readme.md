@@ -22,3 +22,4 @@ You can toggle mirroring on and off by pressing `!`.
 * `-`: Make text smaller
 * `1-9`: Goes up and down to different sizes
 * `!`: Toggles mirroring
+* `n`: Toggles line number

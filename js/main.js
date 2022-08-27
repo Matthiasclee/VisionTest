@@ -3,6 +3,15 @@ function getRand(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
+function tglSizeNum() {
+  e = document.getElementById('size')
+
+  if (e.style.display == 'none') {
+    e.style.display = 'inline'
+  } else {
+    e.style.display = 'none'
+  }
+}
 function bodyFullScreen() {
   document.getElementsByTagName('html')[0].requestFullscreen()
 }
