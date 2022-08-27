@@ -2,7 +2,7 @@ require_relative 'serial.rb'
 require 'selenium-webdriver'
 
 # UNCOMMENT FOR WINDOWS:
-# Selenium::WebDriver::Firefox.driver_path = 'setup_files/geckodriver.exe'
+# Selenium::WebDriver::Firefox::Service.driver_path = 'setup_files/geckodriver.exe'
 driver = Selenium::WebDriver.for :firefox
 driver.navigate.to 'file://' + Dir.pwd + '/index.html'
 
