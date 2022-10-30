@@ -1,5 +1,11 @@
 require 'serialport'
-require_relative 'ser_port.rb'
+require_relative "settings.rb"
+
+if $mode == :unix
+  $ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (puts "Error";exit)
+elsif $mode == :win
+  $ser_port = $windows_serial_port
+end
 
 $codes = {}
 
