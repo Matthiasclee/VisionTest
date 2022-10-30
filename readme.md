@@ -8,6 +8,9 @@ Install instructions can be found [here](https://docs.google.com/document/d/1V24
 #### Mirroring
 You can toggle mirroring on and off by pressing `!`.
 
+#### Dev Setup
+On UNIX systems, export the `receiver_port` variable as /dev/tty.xxxx or whatever the receiver is mounted on.
+
 ###  Default key binds
 * `u`: One size bigger
 * `d`: One size smaller
