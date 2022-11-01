@@ -16,6 +16,15 @@ def changePxSize(num, driver)
   driver.execute_script size + num > size ? 'upPxSize()' : 'downPxSize()'
 end
 
+def toggleMirror(driver)
+  lines = File.readlines('js/settings.js')
+  mirror_line = lines[4].split(" ")
+  mirrored = mirror_line[2].to_i
+  lines[4] = "  localStorage.mirrored = #{mirrored == 0 ? '1' : '0'}\n"
+  File.write('js/settings.js', lines.join)
+  driver.execute_script 'toggleMirror()' 
+end
+
 oncode '1B' do; driver.execute_script 'fill(cSize, true)' end
 oncode '03' do; driver.execute_script 'up()' end
 oncode '04' do; driver.execute_script 'down()' end
@@ -51,7 +60,7 @@ oncode '44' do
   driver.execute_script 'toggleSizeOf20();'
   calibrationmode = !calibrationmode
 end
-
 oncode '48' do; driver.execute_script 'fill("calibration")' end
+oncode '4C' do; toggleMirror(driver) end
 
 start_listener
