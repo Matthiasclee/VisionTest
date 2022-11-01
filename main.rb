@@ -5,6 +5,8 @@ Selenium::WebDriver::Firefox::Service.driver_path = 'setup_files/geckodriver.exe
 driver = Selenium::WebDriver.for :firefox
 driver.navigate.to 'file://' + Dir.pwd + '/index.html'
 
+calibrationmode = false
+
 oncode '1B' do; driver.execute_script 'fill(cSize, true)' end
 oncode '03' do; driver.execute_script 'up()' end
 oncode '04' do; driver.execute_script 'down()' end
@@ -12,8 +14,8 @@ oncode '17' do; driver.execute_script 'up()' end
 oncode '1F' do; driver.execute_script 'down()' end
 oncode '1C' do; driver.execute_script 'up()' end
 oncode '1A' do; driver.execute_script 'down()' end
-oncode '05' do; driver.execute_script 'up()' end
-oncode '06' do; driver.execute_script 'down()' end
+oncode '05' do; driver.execute_script calibrationmode ? 'upPxSize()' : 'up()' end
+oncode '06' do; driver.execute_script calibrationmode ? 'downPxSize()' : 'down()' end
 oncode '07' do; driver.execute_script 'tglLine()' end
 oncode '08' do; driver.execute_script 'tglSingle()' end
 oncode '09' do; driver.execute_script 'tglSizeNum()' end
@@ -33,5 +35,12 @@ oncode '4B' do; driver.execute_script 'fill(17, false, true)' end
 oncode '00' do; driver.execute_script 'screenSaver();' end
 oncode '01' do; driver.execute_script 'screenSaver();' end
 oncode '02' do; driver.execute_script 'screenSaver();' end
+
+# Calibration
+
+oncode '44' do
+  driver.execute_script 'toggleSizeOf20();'
+  calibrationmode = !calibrationmode
+end
 
 start_listener
