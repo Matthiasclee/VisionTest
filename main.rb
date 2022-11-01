@@ -59,8 +59,8 @@ oncode '02' do; driver.execute_script 'screenSaver();' end
 oncode '44' do
   driver.execute_script 'toggleSizeOf20();'
   calibrationmode = !calibrationmode
+  driver.execute_script calibrationmode ? 'fill("calibration")' : 'fill(1, false, true)'
 end
-oncode '48' do; driver.execute_script 'fill("calibration")' end
 oncode '4C' do; toggleMirror(driver) end
 
 start_listener
