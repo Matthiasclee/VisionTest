@@ -52,4 +52,6 @@ oncode '44' do
   calibrationmode = !calibrationmode
 end
 
+oncode '48' do; driver.execute_script 'fill("calibration")' end
+
 start_listener
