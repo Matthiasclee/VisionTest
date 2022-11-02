@@ -10,7 +10,7 @@ if (!localStorage.roomLength) {
 
 function sizeOf20() {
   document.getElementById('sizeOf20').innerHTML = localStorage.pxsize + 'px'
-  document.getElementById('roomLength').innerHTML = (localStorage.roomLength/10).toFixed(1)
+  document.getElementById('roomLength').innerHTML = (localStorage.roomLength/10).toFixed(1) + 'ft'
   return localStorage.pxsize/(20.0/(localStorage.roomLength/10))
 }
 
