@@ -68,19 +68,19 @@ oncode '02' do; driver.execute_script 'screenSaver();' end
 # Calibration
 
 oncode '44' do
-  if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT_Key")
+  if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT")
     driver.execute_script 'toggleSizeOf20();'
     calibrationmode = !calibrationmode
     driver.execute_script calibrationmode ? 'fill("calibration")' : 'fill(1, false, true)'
   end
 end
 oncode '48' do
-  if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT_Key")
+  if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT")
     driver.execute_script 'toggleRoomLength();'
     roomlengthmode = !roomlengthmode
   end
 end
 
-oncode '4C' do; toggleMirror(driver) if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT_Key") end
+oncode '4C' do; toggleMirror(driver) if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT") end
 
 start_listener
