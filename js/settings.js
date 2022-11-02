@@ -4,10 +4,14 @@ if (!localStorage.pxsize) {
 if (!localStorage.mirrored) {
   localStorage.mirrored = 0
 }
+if (!localStorage.roomLength) {
+  localStorage.roomLength = 200
+}
 
 function sizeOf20() {
   document.getElementById('sizeOf20').innerHTML = localStorage.pxsize + 'px'
-  return localStorage.pxsize
+  document.getElementById('roomLength').innerHTML = (localStorage.roomLength/10).toFixed(1)
+  return localStorage.pxsize/(20.0/(localStorage.roomLength/10))
 }
 
 function lettersInLine(line) {

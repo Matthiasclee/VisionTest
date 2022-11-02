@@ -40,6 +40,15 @@ $(document).bind('keypress', function(e){
    }
 });
 
+function upRoomLength() {
+  localStorage.roomLength++;
+  fill(cSize)
+}
+
+function downRoomLength() {
+  localStorage.roomLength--;
+  fill(cSize)
+}
 
 function upPxSize() {
   localStorage.pxsize++;
@@ -67,6 +76,16 @@ $(document).bind('keypress', function(e){
 
 function toggleSizeOf20() {
   e = document.getElementById('sizeOf20')
+
+  if (e.style.display == 'none') {
+    e.style.display = 'inline'
+  } else {
+    e.style.display = 'none'
+  }
+}
+
+function toggleRoomLength() {
+  e = document.getElementById('roomLength')
 
   if (e.style.display == 'none') {
     e.style.display = 'inline'

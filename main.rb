@@ -6,6 +6,7 @@ driver = Selenium::WebDriver.for :firefox
 driver.navigate.to 'file://' + Dir.pwd + '/index.html'
 
 calibrationmode = false
+roomlengthmode = false
 
 def changePxSize(num, driver)
   lines = File.readlines('js/settings.js')
@@ -14,6 +15,15 @@ def changePxSize(num, driver)
   lines[1] = "  localStorage.pxsize = #{size + num}\n"
   File.write('js/settings.js', lines.join)
   driver.execute_script size + num > size ? 'upPxSize()' : 'downPxSize()'
+end
+
+def changeRoomLength(num, driver)
+  lines = File.readlines('js/settings.js')
+  size_line = lines[7].split(" ")
+  size = size_line[2].to_i
+  lines[7] = "  localStorage.roomLength = #{size + num}\n"
+  File.write('js/settings.js', lines.join)
+  driver.execute_script size + num > size ? 'upRoomLength()' : 'downRoomLength()'
 end
 
 def toggleMirror(driver)
@@ -26,8 +36,8 @@ def toggleMirror(driver)
 end
 
 oncode '1B' do; driver.execute_script 'fill(cSize, true)' end
-oncode '03' do; driver.execute_script 'up()' end
-oncode '04' do; driver.execute_script 'down()' end
+oncode '03' do; roomlengthmode ? changeRoomLength(1, driver) : driver.execute_script('up()') end
+oncode '04' do; roomlengthmode ? changeRoomLength(-1, driver) : driver.execute_script('down()') end
 oncode '17' do; driver.execute_script 'up()' end
 oncode '1F' do; driver.execute_script 'down()' end
 oncode '1C' do; driver.execute_script 'up()' end
@@ -61,6 +71,11 @@ oncode '44' do
   calibrationmode = !calibrationmode
   driver.execute_script calibrationmode ? 'fill("calibration")' : 'fill(1, false, true)'
 end
+oncode '48' do
+  driver.execute_script 'toggleRoomLength();'
+  roomlengthmode = !roomlengthmode
+end
+
 oncode '4C' do; toggleMirror(driver) end
 
 start_listener
