@@ -28,6 +28,7 @@ echo "cd ~/VisionTest" >> ~/.bashrc
 echo "ruby main.rb" >> ~/.bashrc
 
 echo "Creating autostart entry"
+mkdir ~/.config/autostart
 echo "[Desktop Entry]" >> ~/.config/autostart/terinal.desktop
 echo "Type=Application" >> ~/.config/autostart/terinal.desktop
 echo "Exec=gnome-terminal" >> ~/.config/autostart/terinal.desktop
