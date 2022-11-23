@@ -38,3 +38,5 @@ echo "Name[en_US]=Terminal" >> ~/.config/autostart/terinal.desktop
 echo "Name=Terminal" >> ~/.config/autostart/terinal.desktop
 echo "Comment[en_US]=" >> ~/.config/autostart/terinal.desktop
 echo "Comment=" >> ~/.config/autostart/terinal.desktop
+
+echo "Install Done, change sleep settings accordingly in settings, and reboot for remote to work"
