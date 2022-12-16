@@ -5,3 +5,5 @@
 * VisionTest may not be used for commercial purposes
 * Modified copies of VisionTest may not be distributed or sold
 * Shared copies of VisionTest may not add additional restrictions
+
+If given explicit permission to use VisionTest in a way not allowed by the license, it is assumed that you agree to the terms of the new agreement by using VisionTest in the disallowed way.
