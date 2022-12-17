@@ -11,8 +11,13 @@ module VisionTest
   end
 end
 
-if ARGV[0] == "client"
-  VisionTest::VTAC::Client.connect("localhost")
-elsif ARGV[0] == "server"
-  VisionTest::VTAC::Server.start
+if $vtac_mode == "client"
+  host = $ARGV[1]
+  port = 5582
+  port = ARGV[2].to_i if ARGV[2]
+  VisionTest::VTAC::Client.connect(host, port: port)
+elsif $vtac_mode == "server"
+  port = 5582
+  port = ARGV[1].to_i if ARGV[1]
+  VisionTest::VTAC::Server.start(port: port)
 end
