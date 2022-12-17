@@ -69,6 +69,9 @@ module VisionTest
             return Packet.new(:response, "Success")
           elsif cmd == "reboot"
             `shutdown -r 0`
+          elsif cmd == "update"
+            out = `cd #{ROOT_DIR};git pull`
+            return Packet.new(:response, out)
           end
           return Packet.new(:error, "Invalid command")
         end
