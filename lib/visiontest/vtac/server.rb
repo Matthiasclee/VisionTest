@@ -4,7 +4,7 @@ module VisionTest
       @server = nil
 
       def client_handler(client)
-        client.puts Packet.new(:id_server, "vtac_server")
+        client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/lib/visiontest/vtac/id_server").chomp)
         packet = Packet.new(from_packet: client.gets)
         if packet[:type] == "id_client" && packet["contents"] == "vtac_client"
           loop do

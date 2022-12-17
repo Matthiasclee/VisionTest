@@ -64,6 +64,9 @@ module VisionTest
             end
 
             return Packet.new(:response, ret) if defined?("ret") 
+          elsif cmd == "name"
+            File.write("#{ROOT_DIR}/lib/visiontest/vtac/id_server", args[0], mode: "w")
+            return Packet.new(:response, "Success")
           end
           return Packet.new(:error, "Invalid command")
         end
