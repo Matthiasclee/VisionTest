@@ -23,6 +23,7 @@ def start_listener
       code = cdat[5..6]
 
       if $codes[code.to_sym]
+        fork{record_keypress_analytics code}
         $codes[code.to_sym].call
       end
 

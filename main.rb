@@ -1,5 +1,18 @@
+
+def record_keypress_analytics(key)
+  analytics = JSON.parse(File.read("analytics/keypresses.json"))
+  analytics[key] = 0 if !analytics[key]
+  analytics[key] = analytics[key] + 1
+  File.write("analytics/keypresses.json", analytics.to_json, mode: "w")
+end
 require_relative 'serial.rb'
 require 'selenium-webdriver'
+require 'json'
+
+if !File.directory?("./analytics")
+  Dir.mkdir("analytics")
+  File.write("analytics/keypresses.json", {}.to_json, mode: "w")
+end
 
 Selenium::WebDriver::Firefox::Service.driver_path = 'setup_files/geckodriver.exe' if $mode == :win
 options = Selenium::WebDriver::Firefox::Options.new(args: ['--kiosk'])
