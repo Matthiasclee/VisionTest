@@ -1,5 +1,5 @@
 module VisionTest
-  ROOT_DIR=File.expand_path("..", Dir.pwd)+"/"
+  ROOT_DIR=File.expand_path("#{$from_main_rb ? "." : ".."}", Dir.pwd)+"/"
 end
 require "json"
 require "serialport"
