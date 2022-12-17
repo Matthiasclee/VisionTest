@@ -25,6 +25,10 @@ module VisionTest
               puts packet[:contents]
             elsif packet[:type] == "error"
               puts "ERROR: " + packet[:contents]
+            elsif packet[:type] == "disconnect"
+              puts "Disconnecting: " + packet[:contents]
+              server.close
+              exit
             else
               server.puts Packet.new(:error, "INVALID_PACKET_TYPE")
             end
