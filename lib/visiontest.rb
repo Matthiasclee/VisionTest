@@ -1,10 +1,11 @@
 module VisionTest
-  ROOT_DIR=File.expand_path("..", Dir.pwd)
+  ROOT_DIR=File.expand_path("..", Dir.pwd)+"/"
 end
 require "json"
 require "serialport"
 require "selenium-webdriver"
 require_relative "visiontest/settings.rb"
+require_relative "visiontest/calibration.rb"
 require_relative "visiontest/serial.rb"
 require_relative "visiontest/analytics.rb"
 require_relative "visiontest/keypresses.rb"
