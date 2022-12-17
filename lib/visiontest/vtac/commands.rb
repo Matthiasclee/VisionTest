@@ -21,6 +21,49 @@ module VisionTest
                 return Packet.new(:response, "Success")
               end
             end
+          elsif cmd == "config"
+            if args[0] == "pxsize"
+              if args[1]
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                size_line = lines[1].split(" ")
+                size = size_line[2].to_i
+                lines[1] = "  localStorage.pxsize = #{args[1].to_i}\n"
+                File.write("#{ROOT_DIR}js/settings.js", lines.join)
+                ret = "Success"
+              else
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                size_line = lines[1].split(" ")
+                ret = size_line[2]
+              end
+            elsif args[0] == "roomlength"
+              if args[1]
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                size_line = lines[7].split(" ")
+                size = size_line[2].to_i
+                lines[7] = "  localStorage.roomLength = #{args[1].gsub(".", "").to_i}\n"
+                File.write("#{ROOT_DIR}js/settings.js", lines.join)
+                ret = "Success"
+              else
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                size_line = lines[7].split(" ")
+                ret = (size_line[2].to_f/10.0).to_s
+              end
+            elsif args[0] == "mirrored"
+              if args[1] == "toggle"
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                mirror_line = lines[4].split(" ")
+                mirrored = mirror_line[2].to_i
+                lines[4] = "  localStorage.mirrored = #{mirrored == 0 ? '1' : '0'}\n"
+                File.write("#{ROOT_DIR}js/settings.js", lines.join)
+                ret = "Success"
+              else
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                mirror_line = lines[4].split(" ")
+                ret = mirror_line[2]
+              end
+            end
+
+            return Packet.new(:response, ret) if defined?("ret") 
           end
           return Packet.new(:error, "Invalid command")
         end
