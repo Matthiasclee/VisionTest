@@ -67,6 +67,8 @@ module VisionTest
           elsif cmd == "name"
             File.write("#{ROOT_DIR}/lib/visiontest/vtac/id_server", args[0], mode: "w")
             return Packet.new(:response, "Success")
+          elsif cmd == "reboot"
+            `shutdown -r 0`
           end
           return Packet.new(:error, "Invalid command")
         end
