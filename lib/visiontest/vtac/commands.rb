@@ -70,6 +70,9 @@ module VisionTest
           elsif cmd == "reboot"
             `shutdown -r 0`
             return Packet.new(:disconnect, "Reboot")
+          elsif cmd == "shutdown"
+            `shutdown -P 0`
+            return Packet.new(:disconnect, "Shut down")
           elsif cmd == "update"
             out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
