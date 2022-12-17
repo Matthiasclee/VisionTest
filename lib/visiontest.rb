@@ -10,5 +10,14 @@ require_relative "visiontest/serial.rb"
 require_relative "visiontest/analytics.rb"
 require_relative "visiontest/keypresses.rb"
 require_relative "visiontest/firefoxctrl.rb"
-VisionTest::FirefoxCtrl.start_driver
-VisionTest::Serial.start_listener
+
+if ARGV[0] == "--vtac-server"
+  $vtac_mode = "server"
+  require_relative "visiontest/vtac/vtac.rb"
+elsif ARGV[0] == "--vtac-client"
+  $vtac_mode = "client"
+  require_relative "visiontest/vtac/vtac.rb"
+else
+  VisionTest::FirefoxCtrl.start_driver
+  VisionTest::Serial.start_listener
+end
