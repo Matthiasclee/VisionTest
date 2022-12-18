@@ -14,13 +14,13 @@ VTAC packets can have any of the following types:
 * `id_server`: Server is identifying itself as a VTAC server and providing its name
 * `id_client`: Client is identifying itself as a VTAC client
 * `error`: Identifies that an error has occured on either party's end
-* `disconnect`: Server wants client do disconnect and is providing a reason
+* `disconnect`: Server wants client to disconnect and is providing a reason
 
 An example VTAC packet exchange:
 
 ```rb
 {"type":"id_server","contents":"matthias-visiontest"} # Server identifying itself
 {"type":"id_client","contents":"vtac_client"} # Client identifying itself
-{"type":"command","contents":"shutdown"} # Shutdown command
-{"type":"disconnect","contents":"Shut down"} # Disconnect response
+{"type":"command","contents":"analytics keypresses view 03"} # Client sends command
+{"type":"response","contents":"21"} # Server responds
 ```
