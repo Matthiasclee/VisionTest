@@ -13,7 +13,7 @@ module VisionTest
           server.puts Packet.new(:id_client, "vtac_client")
           sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
           loop do
-            print "#{server_id}> "
+            print "#{server_id}@#{remote_ip}:#{remote_port}> "
             command = STDIN.gets.chomp
             if command == "exit"
               server.close
