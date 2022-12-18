@@ -25,6 +25,7 @@ echo "# VisionTest ****" >> ~/.bashrc
 echo "export receiver_port=\"$receiver_tty\"" >> ~/.bashrc
 echo "unclutter -idle 0 &" >> ~/.bashrc
 echo "cd ~/VisionTest" >> ~/.bashrc
+echo "ruby main.rb --vtac-server &" >> ~/.bashrc
 echo "ruby main.rb" >> ~/.bashrc
 
 echo "Creating autostart entry"
