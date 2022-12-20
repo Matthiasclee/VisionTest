@@ -1,17 +1,28 @@
 # VisionTest
 
-#### Default lines
-In the `js/settings.js` you can change the default letters in a line. You can also change the amount of `E`s in the rotating E lines.
+VisionTest is a linux-based digital visual acuity chart
 
-Install instructions can be found [here](https://docs.google.com/document/d/1V24E2XJrsKxMPQbbYANHKpaTNGKzV2zQdXEse5a44-U)
+### Usage
+VisionTest can be used with a keyboard, but the recommended way is with a remote control. *see hardware section*
 
-#### Mirroring
-You can toggle mirroring on and off by pressing `!`.
+#### SC-45 model
+See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SC-45%20layout.pdf)
 
-#### Dev Setup
-On UNIX systems, export the `receiver_port` variable as /dev/tty.xxxx or whatever the receiver is mounted on.
+##### Buttons
+* `Screensaver`: Puts the device in screensaver mode
+* `+`: Makes the letters one size bigger
+* `-`: Makes the letters one size smaller
+* `Line`: Toggles showing only one row of letters
+* `SGL`: Toggles showing only one letter per row
+* `Hide`: Hides/shows the letter size in the bottom corner
+* `LTR`: Shows letters
+* `NUM`: Shows numbers
+* `SYM`: Shows symbols
+* `E`: Shows Es flipped differently
+* `Rand`: Randomizes the letters on the screen
+* `10`-`400`: Shortcuts to jump to letter sizes from 10/20 to 400/20
 
-###  Default key binds
+#### Keyboard
 * `u`: One size bigger
 * `d`: One size smaller
 * `l`: Toggle multi-line mode
@@ -26,3 +37,11 @@ On UNIX systems, export the `receiver_port` variable as /dev/tty.xxxx or whateve
 * `1-9`: Goes up and down to different sizes
 * `!`: Toggles mirroring
 * `n`: Toggles line number
+
+### Configuration
+See "Ubuntu Calibration/Setup" in the [VisionTest Install and Setup Guide](https://github.com/Matthiasclee/VisionTest/blob/master/docs/VisionTest%20install%20guide.pdf)
+
+### Hardware
+* PC: Dell Optiplex 7450 AIO
+* Receiver: [Celadon RCV-3000](http://www.celadon.com/infrared-receiver-specs/RCV-3000_USB_receiver_specs.html)
+* Remote: [Celadon SC-45](http://www.celadon.com/remote-control-specs/SC-45-remote-control.htm)
