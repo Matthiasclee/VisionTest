@@ -5,7 +5,7 @@ VisionTest is a linux-based digital visual acuity chart
 ### Usage
 VisionTest can be used with a keyboard, but the recommended way is with a remote control. *see hardware section*
 
-#### SC-45 model
+#### SC-45
 See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SC-45%20layout.pdf)
 
 ##### Buttons
@@ -21,6 +21,9 @@ See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest
 * `E`: Shows Es flipped differently
 * `Rand`: Randomizes the letters on the screen
 * `10`-`400`: Shortcuts to jump to letter sizes from 10/20 to 400/20
+
+#### SH-15
+*layouts for the SH-15 model are not yet complete*
 
 #### Keyboard
 * `u`: One size bigger
