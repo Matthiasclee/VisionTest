@@ -1,5 +1,8 @@
 module VisionTest
   module Serial
+    @sc_45_beginning = "N00FF"
+    @sh_15_beginning = "N708F"
+
     if $mode == :unix
       @ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (puts "Error";exit)
     elsif $mode == :win
@@ -17,11 +20,24 @@ module VisionTest
 
       cdat = ''
       rcvstat = 0 # not started
+      last_sh15_button = nil
       loop do
         if cdat.length == 7
           code = cdat[5..6]
+          remote_id = cdat[0..4]
+          call = false
+          call = true if remote_id == @sc_45_beginning
+          
+          if remote_id == @sh_15_beginning
+            if code.to_sym == last_sh15_button
+              call = true
+              last_sh15_button = nil
+            else
+              last_sh15_button = code.to_sym
+            end
+          end 
 
-          if @codes[code.to_sym]
+          if @codes[code.to_sym] && call
             fork{Analytics.record_keypress_analytics code}
             @codes[code.to_sym].call
           end
