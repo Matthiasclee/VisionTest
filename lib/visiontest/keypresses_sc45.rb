@@ -1,5 +1,5 @@
 module VisionTest
-  module Keypresses
+  module KeypressesSC45
     calibrationmode = false
     roomlengthmode = false
 
