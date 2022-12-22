@@ -42,14 +42,12 @@ module VisionTest
     Serial.oncode 'A8' do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
 
     # Shortcuts
-    Serial.oncode '41' do; FirefoxCtrl.driver.execute_script 'fill(1, false, true)' end
-    Serial.oncode '42' do; FirefoxCtrl.driver.execute_script 'fill(3, false, true)' end
-    Serial.oncode '43' do; FirefoxCtrl.driver.execute_script 'fill(5, false, true)' end
-    Serial.oncode '45' do; FirefoxCtrl.driver.execute_script 'fill(6, false, true)' end
-    Serial.oncode '46' do; FirefoxCtrl.driver.execute_script 'fill(8, false, true)' end
-    Serial.oncode '47' do; FirefoxCtrl.driver.execute_script 'fill(10, false, true)' end
-    Serial.oncode '49' do; FirefoxCtrl.driver.execute_script 'fill(11, false, true)' end
-    Serial.oncode '4A' do; FirefoxCtrl.driver.execute_script 'fill(14, false, true)' end
-    Serial.oncode '4B' do; FirefoxCtrl.driver.execute_script 'fill(17, false, true)' end
+
+    Serial.oncode 'A9' do; FirefoxCtrl.driver.execute_script 'fill(3, false, true)' end # 20 line
+    Serial.oncode 'AA' do; FirefoxCtrl.driver.execute_script 'fill(5, false, true)' end # 30 line
+    Serial.oncode 'AB' do; FirefoxCtrl.driver.execute_script 'fill(6, false, true)' end # 40 line
+    Serial.oncode 'AC' do; FirefoxCtrl.driver.execute_script 'fill(8, false, true)' end # 60 line
+    Serial.oncode 'AD' do; FirefoxCtrl.driver.execute_script 'fill(10, false, true)' end # 80 line
+    Serial.oncode 'AE' do; FirefoxCtrl.driver.execute_script 'fill(14, false, true)' end # 200 line
   end
 end
