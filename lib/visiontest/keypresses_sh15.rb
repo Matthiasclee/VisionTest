@@ -42,7 +42,6 @@ module VisionTest
     Serial.oncode 'A8' do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
 
     # Shortcuts
-
     Serial.oncode 'A9' do; FirefoxCtrl.driver.execute_script 'fill(3, false, true)' end # 20 line
     Serial.oncode 'AA' do; FirefoxCtrl.driver.execute_script 'fill(5, false, true)' end # 30 line
     Serial.oncode 'AB' do; FirefoxCtrl.driver.execute_script 'fill(6, false, true)' end # 40 line
