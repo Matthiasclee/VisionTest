@@ -11,6 +11,7 @@ module VisionTest
     Serial.oncode 'A0' do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
 
     # Randomize letters
-    Serial.oncode 'A4' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)'
+    Serial.oncode 'A4' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
+
   end
 end
