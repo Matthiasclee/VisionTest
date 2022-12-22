@@ -20,7 +20,7 @@ module VisionTest
 
       cdat = ''
       rcvstat = 0 # not started
-      last_sh15_button = nil
+      last_sh15_keypress = DateTime.now.strftime('%Q').to_i - 2
       loop do
         if cdat.length == 7
           code = cdat[5..6]
@@ -29,11 +29,9 @@ module VisionTest
           call = true if remote_id == @sc_45_beginning
           
           if remote_id == @sh_15_beginning
-            if code.to_sym == last_sh15_button
+            if DateTime.now.strftime('%Q').to_i - last_sh15_keypress > 200
               call = true
-              last_sh15_button = nil
-            else
-              last_sh15_button = code.to_sym
+              last_sh15_keypress = DateTime.now.strftime('%Q').to_i
             end
           end 
 

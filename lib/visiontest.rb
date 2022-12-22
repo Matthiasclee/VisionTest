@@ -4,6 +4,7 @@ end
 require "json"
 require "serialport"
 require "selenium-webdriver"
+require "date"
 require_relative "visiontest/settings.rb"
 require_relative "visiontest/calibration.rb"
 require_relative "visiontest/serial.rb"
