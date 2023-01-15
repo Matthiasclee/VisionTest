@@ -1,5 +1,9 @@
 module VisionTest
   ROOT_DIR=File.expand_path("#{$from_main_rb ? "." : ".."}", Dir.pwd)+"/"
+
+  def self.version
+    "0.0.2-beta"
+  end
 end
 require "json"
 require "serialport"
