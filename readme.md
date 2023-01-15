@@ -1,5 +1,6 @@
 # VisionTest
 [Downloads](downloads.md)
+[Github](https://github.com/Matthiasclee/VisionTest)
 
 VisionTest is a linux-based digital visual acuity program.
 
