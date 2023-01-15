@@ -3,7 +3,7 @@ module VisionTest
     @sc_45_beginning = "N00FF"
     @sh_15_beginning = "N708F"
 
-    if $mode == :unix
+    if $mode == :unix && ARGV[0] != "--vtac-client"
       @ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (STDERR.puts "VisionTest: receiver_port not set";exit(1))
     elsif $mode == :win
       @ser_port = $windows_serial_port
