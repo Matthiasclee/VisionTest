@@ -4,7 +4,7 @@ module VisionTest
     @sh_15_beginning = "N708F"
 
     if $mode == :unix
-      @ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (puts "Error";exit)
+      @ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (STDERR.puts "VisionTest: receiver_port not set";exit(1))
     elsif $mode == :win
       @ser_port = $windows_serial_port
     end
