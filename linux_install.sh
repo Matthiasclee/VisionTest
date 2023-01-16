@@ -20,13 +20,21 @@ echo "Downloading VisionTest"
 cd ~
 git clone https://github.com/MatthiasCLee/VisionTest.git
 
-echo "Adding VisionTest startup to bashrc"
+echo "Creating config file"
+echo "receiver_tty=$receiver_tty" > ~/.vtreceiverport
+
+echo "Creating launch file"
+echo '#!/bin/bash' >> ~/vtlaunch
+echo 'export receiver_port=$(cat ~/.vtreceiverport)' >> ~/vtlaunch
+echo "unclutter -idle 0 &" >> ~/vtlaunch
+echo "cd ~/VisionTest" >> ~/vtlaunch
+echo "ruby main.rb --vtac-server &" >> ~/vtlaunch
+echo "ruby main.rb" >> ~/vtlaunch
+chmod +x ~/vtlaunch
+
+echo "Adding entry to bashrc"
 echo "# VisionTest ****" >> ~/.bashrc
-echo "export receiver_port=\"$receiver_tty\"" >> ~/.bashrc
-echo "unclutter -idle 0 &" >> ~/.bashrc
-echo "cd ~/VisionTest" >> ~/.bashrc
-echo "ruby main.rb --vtac-server &" >> ~/.bashrc
-echo "ruby main.rb" >> ~/.bashrc
+echo "~/vtlaunch" >> ~/.bashrc
 
 echo "Creating autostart entry"
 mkdir ~/.config/autostart
