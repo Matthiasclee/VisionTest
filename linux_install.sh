@@ -21,7 +21,7 @@ cd ~
 git clone https://github.com/MatthiasCLee/VisionTest.git
 
 echo "Creating config file"
-echo "receiver_tty=$receiver_tty" > ~/.vtreceiverport
+echo "$receiver_tty" > ~/.vtreceiverport
 
 echo "Creating launch file"
 echo '#!/bin/bash' >> ~/vtlaunch
