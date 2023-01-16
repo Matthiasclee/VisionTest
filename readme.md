@@ -41,6 +41,16 @@ See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest
 * `!`: Toggles mirroring
 * `n`: Toggles line number
 
+### Installation
+
+#### With script
+To install VisionTest with the install script, first download the [install script](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/scripts/linux_install.sh), and put it on the target machine.
+Now, ensure you have sudo access on the machine, and run it with `bash ./linux_install.sh`. The script will install dependencies, download VisionTest, and set up all config files automatically.
+
+#### Manually
+To install VisionTest manually, or from a certain version, first download the version you want from the [downloads page](https://visiontest.matthiasclee.com/downloads.html), and put it on the target machine.
+Unzip it to the user's home directory. If the version is after commit `d60420e`, you can just run all of the scripts in `scripts/setup/`, and VisionTest will be automatically configured. NOTE: you will need to set the `receiver_tty` variable to the receiver tty (usually `/dev/ttyUSB0`).
+
 ### Configuration
 See "Ubuntu Calibration/Setup" in the [VisionTest Install and Setup Guide](https://github.com/Matthiasclee/VisionTest/blob/master/docs/VisionTest%20install%20guide.pdf)
 
