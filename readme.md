@@ -1,6 +1,8 @@
 # VisionTest
 [Downloads](downloads.md)
 |
+[VTAC](vtac.md)
+|
 [Github](https://github.com/Matthiasclee/VisionTest)
 
 VisionTest is a linux-based digital visual acuity program that is made to be easy to deploy and manage.
