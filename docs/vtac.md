@@ -1,5 +1,5 @@
 # VTAC Usage guide
-### **V***ision***T***est***A***dministrative***C***onsole*
+### **V**ision**T**est**A**dministrative**C**onsole
 
 VTAC is a protocol that allows for VisionTest machines to be configured and administered from a computer.
 *Note: VTAC is an insecure protocol without authentication, and should not be accessible from outside a network*
