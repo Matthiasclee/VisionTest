@@ -45,7 +45,7 @@ Now, add the following line in:
 export receiver_port=\"$receiver_tty\"
 unclutter -idle 0 &
 cd ~/VisionTest
-ruby main.rb --vtac-server &
+ruby main.rb --vtac-server & # <--- This line
 ruby main.rb
 ```
 VTAC is now set up. Restart the computer to use it.
