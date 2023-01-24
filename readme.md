@@ -1,6 +1,6 @@
 # VisionTest
 
-VisionTest is a linux-based digital visual acuity chart
+VisionTest is a linux-based digital visual acuity chart.
 
 ### Usage
 VisionTest can be used with a keyboard, but the recommended way is with a remote control. *see hardware section*
