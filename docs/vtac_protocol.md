@@ -1,5 +1,5 @@
 # VTAC Protocol
-### **V***ision***T***est***A***dministrative***C***onsole*
+**V**ision**T**est**A**dministrative**C**onsole
 
 VTAC is a JSON-based protocol that allows for remote administration of VisionTest computers.
 
