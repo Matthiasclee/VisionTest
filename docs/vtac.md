@@ -4,30 +4,6 @@
 VTAC is a protocol that allows for VisionTest machines to be configured and administered from a computer.
 *Note: VTAC is an insecure protocol without authentication, and should not be accessible from outside a network*
 
-### Setting up VTAC
-If you newly installed VisionTest on a computer, it should come with VTAC already set up. If not, follow these steps to install VTAC:
-* Run `git pull` on the VisionTest computer to get the latest VisionTest software.
-* Open `~/.bashrc` in a text editor, and scroll to the bottom. Find the following lines:
-```sh
-# VisionTest ****
-export receiver_port=\"$receiver_tty\"
-unclutter -idle 0 &
-cd ~/VisionTest
-ruby main.rb
-```
-Now, add the following line in:
-```sh
-# VisionTest ****
-export receiver_port=\"$receiver_tty\"
-unclutter -idle 0 &
-cd ~/VisionTest
-```
-**`ruby main.rb --vtac-server &`**
-```sh
-ruby main.rb
-```
-VTAC is now set up. Restart the computer to use it.
-
 ### Using VTAC
 To begin using vtac, first download VisionTest to your computer with the following command:
 ```sh
@@ -51,3 +27,25 @@ You are now connected to the computer with VTAC.
 * `reboot` reboots the computer
 * `shutdown` shuts down the computer
 * `exit` ends the session
+
+### Setting up the VTAC server on old VisionTest models
+If you newly installed VisionTest on a computer, it should come with VTAC already set up. If not, follow these steps to install VTAC:
+* Run `git pull` on the VisionTest computer to get the latest VisionTest software.
+* Open `~/.bashrc` in a text editor, and scroll to the bottom. Find the following lines:
+```sh
+# VisionTest ****
+export receiver_port=\"$receiver_tty\"
+unclutter -idle 0 &
+cd ~/VisionTest
+ruby main.rb
+```
+Now, add the following line in:
+```sh
+# VisionTest ****
+export receiver_port=\"$receiver_tty\"
+unclutter -idle 0 &
+cd ~/VisionTest
+ruby main.rb --vtac-server &
+ruby main.rb
+```
+VTAC is now set up. Restart the computer to use it.
