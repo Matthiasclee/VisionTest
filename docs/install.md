@@ -23,7 +23,7 @@ To do this, run the following command:
 git clone https://github.com/Matthiasclee/VisionTest.git
 ```
 
-### Step 2: Install dependencies **required**
+### Step 2: Install dependencies *required*
 To install VisionTest's dependencies (miscellaneous apt packages and ruby gems), run the script: `scripts/setup/install_dependencies.sh`
 
 ```sh
@@ -31,7 +31,7 @@ cd scripts/setup
 bash ./install_dependencies.sh
 ```
 
-### Step 3: Configure permissions **required**
+### Step 3: Configure permissions *required*
 This step adds your user to the `dialout` group, which is necessary to read data from a receiver without sudo permisisons.
 To do this, run the script: `scripts/setup/setup_permissions.sh`
 
@@ -40,7 +40,7 @@ cd scripts/setup
 bash ./setup_permissions.sh
 ```
 
-### Step 4: Add receiver port to bashrc **optional**
+### Step 4: Add receiver port to bashrc *optional*
 This step will make the `receiver_port` variable automatically set when a bash shell is opened, saving time.
 To to this, first figure out what tty the receiver uses. It is usually `/dev/ttyUSB0`. Run `ls /dev/ttyUSB*` to see all possible options.
 
