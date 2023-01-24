@@ -13,6 +13,8 @@ Reboot, and VisionTest is installed.
 
 [`scripts/linux_install.sh`](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/scripts/linux_install.sh)
 
+A more detailed full install guide can be found [here](https://github.com/Matthiasclee/VisionTest/blob/master/docs/VisionTest%20install%20guide.pdf).
+
 ## Development install/setup
 This install sets up VisionTest to be able to run on your computer, but doesn't modify bashrc or startup files.
 You may need sudo to do this install.
