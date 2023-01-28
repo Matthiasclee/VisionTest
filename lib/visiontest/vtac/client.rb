@@ -5,15 +5,17 @@ module VisionTest
         server = TCPSocket.open(host, port)
 
         packet = Packet.new(from_packet: server.gets)
-        puts packet
-        puts packet[:contents]
-        puts packet[:type]
         if packet[:type] == "id_server"
-          server_id = packet[:contents]
+          server_id = packet[:contents].split("~")
+          server_name = server_id[0]
+          server_version = server_id[1] ? server_id[1] : "(pre-0.0.2)"
           server.puts Packet.new(:id_client, "vtac_client")
           sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
+
+          puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"
+
           loop do
-            print "#{server_id}@#{remote_ip}:#{remote_port}> "
+            print "#{server_name}@#{remote_ip}> "
             command = STDIN.gets.chomp
             if command == "exit"
               server.close
