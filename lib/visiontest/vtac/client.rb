@@ -1,7 +1,7 @@
 module VisionTest
   module VTAC
     module Client
-      def connect(host, port:5582)
+      def self.connect(host, port:5582)
         server = TCPSocket.open(host, port)
 
         packet = Packet.new(from_packet: server.gets)
@@ -38,8 +38,6 @@ module VisionTest
           return
         end
       end
-
-      module_function :connect
     end
   end
 end

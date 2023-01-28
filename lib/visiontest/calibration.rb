@@ -1,6 +1,6 @@
 module VisionTest
   module Calibration
-    def changePxSize(num)
+    def self.changePxSize(num)
       lines = File.readlines("#{ROOT_DIR}js/settings.js")
       size_line = lines[1].split(" ")
       size = size_line[2].to_i
@@ -9,7 +9,7 @@ module VisionTest
       FirefoxCtrl.driver.execute_script size + num > size ? 'upPxSize()' : 'downPxSize()'
     end
 
-    def changeRoomLength(num)
+    def self.changeRoomLength(num)
       lines = File.readlines("#{ROOT_DIR}js/settings.js")
       size_line = lines[7].split(" ")
       size = size_line[2].to_i
@@ -18,7 +18,7 @@ module VisionTest
       FirefoxCtrl.driver.execute_script size + num > size ? 'upRoomLength()' : 'downRoomLength()'
     end
 
-    def toggleMirror()
+    def self.toggleMirror()
       lines = File.readlines("#{ROOT_DIR}js/settings.js")
       mirror_line = lines[4].split(" ")
       mirrored = mirror_line[2].to_i
@@ -26,7 +26,5 @@ module VisionTest
       File.write("#{ROOT_DIR}js/settings.js", lines.join)
       FirefoxCtrl.driver.execute_script 'toggleMirror()' 
     end
-
-    module_function :changePxSize, :changeRoomLength, :toggleMirror
   end
 end

@@ -3,7 +3,7 @@ module VisionTest
     module Server
       @server = nil
 
-      def client_handler(client)
+      def self.client_handler(client)
         client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/lib/visiontest/vtac/id_server").chomp + "~v#{::VisionTest.version}")
         packet = Packet.new(from_packet: client.gets)
         if packet[:type] == "id_client"
@@ -23,7 +23,7 @@ module VisionTest
         end
       end
 
-      def start(port:5582, host:"0.0.0.0")
+      def self.start(port:5582, host:"0.0.0.0")
         @server = TCPServer.new(host, port)
         run_server = true
 
@@ -36,8 +36,6 @@ module VisionTest
           end
         end
       end
-
-      module_function :start, :client_handler
     end
   end
 end

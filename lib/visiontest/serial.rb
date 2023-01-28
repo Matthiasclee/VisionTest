@@ -9,11 +9,11 @@ module VisionTest
 
     @codes = {}
 
-    def oncode(code, &block)
+    def self.oncode(code, &block)
       @codes[code.to_sym] = block
     end
 
-    def start_listener
+    def self.start_listener
       ser = SerialPort.new(@ser_port, 9600, 8, 1, SerialPort::NONE)
 
       cdat = ''
@@ -51,6 +51,5 @@ module VisionTest
         end
       end
     end
-    module_function :oncode, :start_listener
   end
 end

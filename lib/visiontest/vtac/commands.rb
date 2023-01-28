@@ -2,7 +2,7 @@ module VisionTest
   module VTAC
     module Server
       module Commands
-        def run(c)
+        def self.run(c)
           command = c.split(" ")
 
           cmd = command[0]
@@ -79,8 +79,6 @@ module VisionTest
           end
           return Packet.new(:error, "Invalid command")
         end
-
-        module_function :run
       end
     end
   end
