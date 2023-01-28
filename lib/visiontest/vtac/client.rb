@@ -24,7 +24,7 @@ module VisionTest
             if packet[:type] == "response"
               puts packet[:contents]
             elsif packet[:type] == "error"
-              puts "ERROR: " + packet[:contents]
+              STDERR.puts "ERROR: " + packet[:contents]
             elsif packet[:type] == "disconnect"
               puts "Disconnecting: " + packet[:contents]
               server.close
