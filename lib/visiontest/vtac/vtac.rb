@@ -1,5 +1,6 @@
 require "socket"
 require "json"
+require "digest"
 require_relative "packet.rb"
 require_relative "client.rb"
 require_relative "commands.rb"
