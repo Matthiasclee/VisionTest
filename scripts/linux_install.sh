@@ -1,16 +1,24 @@
 echo "VisionTest Installer"
 echo "---------------------------------"
 
-echo "Updating repos (you may be asked for your password)"
+# Check for sudo permissions
+echo "Checking for sudo permissions (you may be asked for your password)"
+sudo bash -c : 2>/dev/null
+if [ $? == "1" ]; then
+  echo "$0: Error: user does not have sudo permissions" 1>&2
+  exit 1
+fi
+
+echo "Updating repos"
 sudo apt-get update
 
-echo "Installing packages (you may be asked for your password)"
+echo "Installing packages"
 sudo apt-get install ruby ruby-dev gcc make automake git firefox-geckodriver unclutter libgmp-dev libgmp3-dev libpcre3 libpcre3-dev -y
 
-echo "Installing gems (you may be asked for your password)"
+echo "Installing gems"
 sudo gem install selenium-webdriver ffi rbtext serialport json
 
-echo "Adding user to dialout group (you may be asked for your password)"
+echo "Adding user to dialout group"
 sudo usermod -a -G dialout $USER
 
 echo "Please enter the receiver tty (normally /dev/ttyUSB0): "
@@ -49,4 +57,4 @@ echo "Name=Terminal" >> ~/.config/autostart/terinal.desktop
 echo "Comment[en_US]=" >> ~/.config/autostart/terinal.desktop
 echo "Comment=" >> ~/.config/autostart/terinal.desktop
 
-echo "Install Done, change sleep settings accordingly in settings, and reboot for remote to work"
+echo "VisionTest was successfully installed. You may need to reboot to use VisionTest."
