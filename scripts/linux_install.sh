@@ -1,6 +1,14 @@
 echo "VisionTest Installer"
 echo "---------------------------------"
 
+# Check for sudo permissions
+echo "Checking for sudo permissions (you may be asked for your password)"
+sudo bash -c : 2>/dev/null
+if [ $? == "1" ]; then
+  echo "$0: Error: user does not have sudo permissions" 1>&2
+  exit 1
+fi
+
 echo "Updating repos (you may be asked for your password)"
 sudo apt-get update
 
