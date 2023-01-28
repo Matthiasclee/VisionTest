@@ -9,16 +9,16 @@ if [ $? == "1" ]; then
   exit 1
 fi
 
-echo "Updating repos (you may be asked for your password)"
+echo "Updating repos"
 sudo apt-get update
 
-echo "Installing packages (you may be asked for your password)"
+echo "Installing packages"
 sudo apt-get install ruby ruby-dev gcc make automake git firefox-geckodriver unclutter libgmp-dev libgmp3-dev libpcre3 libpcre3-dev -y
 
-echo "Installing gems (you may be asked for your password)"
+echo "Installing gems"
 sudo gem install selenium-webdriver ffi rbtext serialport json
 
-echo "Adding user to dialout group (you may be asked for your password)"
+echo "Adding user to dialout group"
 sudo usermod -a -G dialout $USER
 
 echo "Please enter the receiver tty (normally /dev/ttyUSB0): "
