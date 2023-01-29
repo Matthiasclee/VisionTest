@@ -92,7 +92,7 @@ module VisionTest
               out = `cd #{ROOT_DIR};git checkout master`
               return Packet.new(:response, out)
             elsif args[0]
-              out = `cd #{ROOT_DIR};git checkout tags/v#{args[0]}`
+              out = `cd #{ROOT_DIR};git checkout tags/v#{args[0].gsub(/[;$&]/, "")}`
               return Packet.new(:response, "Success")
             else
               return Packet.new(:error, "Invalid command")
