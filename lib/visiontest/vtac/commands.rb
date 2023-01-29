@@ -88,7 +88,7 @@ module VisionTest
             out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
           elsif cmd == "version"
-            if args[0] == "latest"
+            if args[0] == "master"
               out = `cd #{ROOT_DIR};git checkout master`
               return Packet.new(:response, out)
             elsif args[0]
