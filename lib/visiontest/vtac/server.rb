@@ -18,6 +18,8 @@ module VisionTest
               if sha256 != password_sha256
                 client.puts Packet.new(:error, "BAD_PASSWORD")
                 client.close
+              else
+                client.puts Packet.new(:response, "AUTH_SUCCESS")
               end
             else
               client.puts Packet.new(:error, "EXPECTED_PASSWORD_PACKET")
