@@ -9,6 +9,22 @@ module VisionTest
         client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/lib/visiontest/vtac/id_server").chomp + "~v#{::VisionTest.version}" + "#{"~authreq" if (password_sha256 != "")}")
         packet = Packet.new(from_packet: client.gets)
         if packet[:type] == "id_client"
+          if password_sha256 != ""
+            packet = Packet.new(from_packet: client.gets)
+
+            if packet[:type] == "password"
+              sha256 = Digest::SHA256.hexdigest packet[:contents]
+
+              if sha256 != password_sha256
+                client.puts Packet.new(:error, "BAD_PASSWORD")
+                client.close
+              end
+            else
+              client.puts Packet.new(:error, "EXPECTED_PASSWORD_PACKET")
+              client.close
+            end
+          end
+
           loop do
             packet = Packet.new(from_packet: client.gets)
             if packet[:type] == "command"
