@@ -30,6 +30,7 @@ You are now connected to the computer with VTAC.
 * `reboot` reboots the computer
 * `shutdown` shuts down the computer
 * `exit` ends the session
+* `password [clear|set <password>]` sets or clears the VTAC password
 
 ### Setting up the VTAC server on old VisionTest models
 If you newly installed VisionTest on a computer, it should come with VTAC already set up. If not, follow these steps to install VTAC:

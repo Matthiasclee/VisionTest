@@ -9,7 +9,21 @@ module VisionTest
           server_id = packet[:contents].split("~")
           server_name = server_id[0]
           server_version = server_id[1] ? server_id[1] : "(pre-0.0.2)"
+          auth_required = (server_id[2] == "authreq") ? true : false
           server.puts Packet.new(:id_client, "vtac_client")
+
+          if auth_required
+            print "Password: "
+            server.puts Packet.new(:password, STDIN.gets.chomp)
+
+            response = Packet.new(from_packet: server.gets)
+
+            if response[:type] == "error"
+              STDERR.puts "ERROR: " + response[:contents]
+              exit 1
+            end
+          end
+
           sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
 
           puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"

@@ -17,6 +17,7 @@ VTAC packets can have any of the following types:
 * `id_client`: Client is identifying itself as a VTAC client
 * `error`: Identifies that an error has occured on either party's end
 * `disconnect`: Server wants client to disconnect and is providing a reason
+* `password`: Client is authenticating itself with a password *NOTE: this password is sent as cleartext*
 
 #### Packet structure
 VTAC packets are JSON based, and have a specific structure.
@@ -37,6 +38,7 @@ Example packet:
 * `id_client`: `vtac_client` (this doesn't change)
 * `error`: Error message
 * `disconnect`: Reason for disconnect
+* `password`: Server's password
 
 ### VTAC handshake
 When a client connects to a VTAC server, they must perform a handshake to ensure that both are valid VTAC peers.
@@ -52,6 +54,23 @@ After this, the client must now send an `id_client` packet, validating itself as
 ```
 
 Now, the server will wait for a `command` packet from the client.
+
+### Authentication
+VTAC servers can be configured to require a password for clients to be able to connect.
+If the server does not require a password, the handshake will be normal, as seen above.
+If the server does require a password, however, `~authreq` will be appended to the `id_server` packet, indicating that a password is required.
+```rb
+{"type":"id_server","contents":"matthias-visiontest~v0.0.3~authreq"} # Server identifying itself and requiring authentication
+```
+
+In this case, after the handshake is completed as seen above, the server will wait for a `password` packet to be sent by the client before allowing commands to be run.
+```rb
+{"type":"password","contents":"super-secure-password"} # Client sending a password
+```
+
+If the password is correct, the server will send a `response` packet containing `"AUTH_SUCCESS"`, and allow commands to be sent. If not, the server will send an `error` packet containing `"BAD_PASSWORD"`.
+
+The password is stored in `lib/visiontest/vtac/pw_sha256` as an SHA256 hash.
 
 ### Commands and responses
 Once the handshake is completed, the server will wait for a `command` packet. That packet looks like this:

@@ -64,6 +64,15 @@ module VisionTest
             end
 
             return Packet.new(:response, ret) if defined?("ret") 
+          elsif cmd == "password"
+            if args[0] == "set"
+              pw = Digest::SHA256.hexdigest(args[1])
+            elsif args[0] == "clear"
+              pw = ""
+            end
+
+            File.write("#{ROOT_DIR}/lib/visiontest/vtac/pw_sha256", pw, mode: "w")
+            return Packet.new(:response, "Success")
           elsif cmd == "name"
             File.write("#{ROOT_DIR}/lib/visiontest/vtac/id_server", args[0], mode: "w")
             return Packet.new(:response, "Success")
