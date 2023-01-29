@@ -87,6 +87,16 @@ module VisionTest
           elsif cmd == "update"
             out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
+          elsif cmd == "version"
+            if args[0] == "latest"
+              out = `cd #{ROOT_DIR};git checkout master`
+              return Packet.new(:response, out)
+            elsif args[0]
+              out = `cd #{ROOT_DIR};git checkout tags/v#{args[0].gsub(?v, "")}`
+              return Packet.new(:response, out)
+            else
+              return Packet.new(:error, "Invalid command")
+            end
           end
           return Packet.new(:error, "Invalid command")
         end
