@@ -19,7 +19,7 @@ module VisionTest
             response = Packet.new(from_packet: server.gets)
 
             if response[:type] == "error"
-              STDERR.puts "ERROR: " + packet[:contents]
+              STDERR.puts "ERROR: " + response[:contents]
               exit 1
             end
           end
