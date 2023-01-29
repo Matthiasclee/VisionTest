@@ -20,6 +20,9 @@ Once you have found the computer you want, change to the directory you downloade
 ```sh
 ruby main.rb --vtac-client <ip address>
 ```
+
+If the computer requires a password, you will be prompted with `Password: ` to enter a password.
+
 You are now connected to the computer with VTAC.
 
 #### VTAC commands
