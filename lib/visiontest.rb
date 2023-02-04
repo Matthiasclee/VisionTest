@@ -5,6 +5,18 @@ module VisionTest
     "0.0.3-beta-a"
   end
 end
+
+ivtver_file = Dir.home + "/.ivtver"
+
+prev_vt_ver = :none
+if !File.exists?(ivtver_file)
+  prev_vt_ver = nil
+  File.write(ivtver_file, VisionTest.version, mode: "w")
+elsif File.read(ivtver_file).chomp != VisionTest.version
+  prev_vt_ver = File.read(ivtver_file)
+  File.write(ivtver_file, VisionTest.version, mode: "w")
+end
+
 require "json"
 require "serialport"
 require "selenium-webdriver"
