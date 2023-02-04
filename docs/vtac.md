@@ -6,15 +6,23 @@ VTAC is a protocol that allows for VisionTest machines to be configured and admi
 ### Using VTAC
 *Check out [vtacfriendly](https://github.com/Matthiasclee/VtacFriendly) for a clean, visual user interface to VTAC.*
 <br>
-To begin using vtac, first download VisionTest to your computer with the following command:
+To begin using vtac, first download VisionTest to your computer, and change to its directory with the following commands:
 ```sh
 git clone https://github.com/Matthiasclee/VisionTest.git
+cd VisionTest
 ```
-Now, get the IP address or hostname of the VisionTest computer you want to connect to. You can find the IP addresses of all VTAC-enabled computers on a network with the following command:
+Now, get the IP address or hostname of the VisionTest computer you want to connect to. You can find the IP addresses of all VTAC-enabled computers on a network with the `find_vtac_servers` script:
 ```sh
-nmap 192.168.0.0/24 -p 5582 --open
+bash scripts/find_vtac_servers.sh
 ```
-Once you have found the computer you want, change to the directory you downloaded VisionTest to, and run the following command to connect to it:
+This will output all of the VTAC computers on the network with their names, version, and authentication status:
+```
+192.168.0.139 test_vtac_server v0.0.3-beta authreq
+192.168.0.145 vtac_server v0.0.3-beta-a 
+192.168.0.230 matthias-vt v0.0.3-beta-a authreq
+192.168.0.140 vtac_server_aaa v0.0.3-beta 
+```
+Once you have found the desired computer, connect to it with the following command:
 ```sh
 ruby main.rb --vtac-client <ip address>
 ```
