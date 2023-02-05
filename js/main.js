@@ -1,16 +1,13 @@
+var mode = 'letter'
+var sgl = false
+var cSize = 1
+var multiLine = true
+
+
 function getRand(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-}
-function tglSizeNum() {
-  e = document.getElementById('size')
-
-  if (e.style.display == 'none') {
-    e.style.display = 'inline'
-  } else {
-    e.style.display = 'none'
-  }
 }
 function bodyFullScreen() {
   document.getElementsByTagName('html')[0].requestFullscreen()
@@ -27,7 +24,7 @@ function clearAll() {
     x++
   }
 }
-var mode = 'letter'
+
 function drawLine(r, type, letters, spacing, random = false) {
   images = []
 
@@ -127,9 +124,6 @@ function drawLine(r, type, letters, spacing, random = false) {
 
   return true
 }
-
-var cSize = 1
-var multiLine = true
 
 function line(r, size, random = false) {
   if (r==1) {document.getElementById('size').innerHTML = size}

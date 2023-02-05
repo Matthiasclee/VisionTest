@@ -40,32 +40,12 @@ $(document).bind('keypress', function(e){
    }
 });
 
-function upRoomLength() {
-  localStorage.roomLength++;
-  fill(cSize)
-}
-
-function downRoomLength() {
-  localStorage.roomLength--;
-  fill(cSize)
-}
-
-function upPxSize() {
-  localStorage.pxsize++;
-  fill(cSize)
-}
-
 $(document).bind('keypress', function(e){
    x = document.getElementById('sizeOf20')
    if(e.key == '+' && x.style.display == 'inline') {
      upPxSize()
    }
 });
-
-function downPxSize() {
-  localStorage.pxsize--;
-  fill(cSize)
-}
 
 $(document).bind('keypress', function(e){
    x = document.getElementById('sizeOf20')
@@ -74,54 +54,11 @@ $(document).bind('keypress', function(e){
    }
 });
 
-function toggleSizeOf20() {
-  e = document.getElementById('sizeOf20')
-
-  if (e.style.display == 'none') {
-    e.style.display = 'inline'
-  } else {
-    e.style.display = 'none'
-  }
-}
-
-function toggleRoomLength() {
-  e = document.getElementById('roomLength')
-
-  if (e.style.display == 'none') {
-    e.style.display = 'inline'
-  } else {
-    e.style.display = 'none'
-  }
-}
-
 $(document).bind('keypress', function(e){
   if(e.key == '@') {
     toggleSizeOf20()
   }
 });
-
-function tglMode() {
-  if (mode == 'letter') {
-    mode = 'number'
-    fill(cSize)
-    return
-  }
-  if (mode == 'number') {
-    mode = 'symbol'
-    fill(cSize)
-    return
-  }
-  if (mode == 'symbol') {
-    mode = 'e'
-    fill(cSize)
-    return
-  }
-  if (mode == 'e') {
-    mode = 'letter'
-    fill(cSize)
-    return
-  }
-}
 
 $(document).bind('keypress', function(e){
    if(e.key == 'm') {
@@ -129,50 +66,17 @@ $(document).bind('keypress', function(e){
    }
 });
 
-sgl = false
-
-function tglSingle() {
-  if (sgl) {
-    sgl = false
-  } else {
-    sgl = true
-  }
-
-  fill(cSize)
-}
-
 $(document).bind('keypress', function(e){
    if(e.key == 's') {
      tglSingle()
    }
 });
 
-function toggleMirror() {
-  vt = document.getElementsByClassName('visionTest')[0]
-
-  if (parseInt(localStorage.mirrored)) {
-    vt.classList.remove('mirrored')
-    localStorage.mirrored = 0
-  } else {
-    vt.classList.add('mirrored')
-    localStorage.mirrored = 1
-  }
-}
-
 $(document).bind('keypress', function(e){
    if(e.key == '!') {
      toggleMirror()
    }
 });
-
-function tglLine() {
-  if (multiLine) {
-    multiLine = false
-  } else {
-    multiLine = true
-  }
-  fill(cSize)
-}
 
 $(document).bind('keypress', function(e){
   if(e.key == 'l') {
