@@ -40,32 +40,12 @@ $(document).bind('keypress', function(e){
    }
 });
 
-function upRoomLength() {
-  localStorage.roomLength++;
-  fill(cSize)
-}
-
-function downRoomLength() {
-  localStorage.roomLength--;
-  fill(cSize)
-}
-
-function upPxSize() {
-  localStorage.pxsize++;
-  fill(cSize)
-}
-
 $(document).bind('keypress', function(e){
    x = document.getElementById('sizeOf20')
    if(e.key == '+' && x.style.display == 'inline') {
      upPxSize()
    }
 });
-
-function downPxSize() {
-  localStorage.pxsize--;
-  fill(cSize)
-}
 
 $(document).bind('keypress', function(e){
    x = document.getElementById('sizeOf20')
@@ -146,18 +126,6 @@ $(document).bind('keypress', function(e){
      tglSingle()
    }
 });
-
-function toggleMirror() {
-  vt = document.getElementsByClassName('visionTest')[0]
-
-  if (parseInt(localStorage.mirrored)) {
-    vt.classList.remove('mirrored')
-    localStorage.mirrored = 0
-  } else {
-    vt.classList.add('mirrored')
-    localStorage.mirrored = 1
-  }
-}
 
 $(document).bind('keypress', function(e){
    if(e.key == '!') {
