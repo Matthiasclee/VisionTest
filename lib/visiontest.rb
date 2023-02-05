@@ -40,6 +40,12 @@ elsif ARGV[0] == "--dvc-client"
 else
   $dvc_mode = "server"
   require_relative "visiontest/dvc/dvc.rb"
-  VisionTest::FirefoxCtrl.start_driver
-  VisionTest::Serial.start_listener
+  begin
+    VisionTest::FirefoxCtrl.start_driver
+    VisionTest::Serial.start_listener
+  rescue Interrupt
+    STDOUT.puts "Exiting..."
+    VisionTest::FirefoxCtrl.driver.close
+    exit 0
+  end
 end
