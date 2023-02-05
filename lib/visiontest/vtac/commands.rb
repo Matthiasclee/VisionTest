@@ -56,6 +56,13 @@ module VisionTest
                 lines[4] = "  localStorage.mirrored = #{mirrored == 0 ? '1' : '0'}\n"
                 File.write("#{ROOT_DIR}js/settings.js", lines.join)
                 ret = "Success"
+              elsif [?0, ?1].include?(args[1])
+                lines = File.readlines("#{ROOT_DIR}js/settings.js")
+                lines[4] = "  localStorage.mirrored = #{args[1]}\n"
+                File.write("#{ROOT_DIR}js/settings.js", lines.join)
+                ret = "Success"
+              elsif args[1]
+                return Packet.new(:error, "Invalid command")
               else
                 lines = File.readlines("#{ROOT_DIR}js/settings.js")
                 mirror_line = lines[4].split(" ")
