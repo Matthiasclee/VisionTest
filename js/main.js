@@ -1,3 +1,9 @@
+var mode = 'letter'
+var sgl = false
+var cSize = 1
+var multiLine = true
+
+
 function getRand(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -27,7 +33,7 @@ function clearAll() {
     x++
   }
 }
-var mode = 'letter'
+
 function drawLine(r, type, letters, spacing, random = false) {
   images = []
 
@@ -127,9 +133,6 @@ function drawLine(r, type, letters, spacing, random = false) {
 
   return true
 }
-
-var cSize = 1
-var multiLine = true
 
 function line(r, size, random = false) {
   if (r==1) {document.getElementById('size').innerHTML = size}

@@ -60,46 +60,11 @@ $(document).bind('keypress', function(e){
   }
 });
 
-function tglMode() {
-  if (mode == 'letter') {
-    mode = 'number'
-    fill(cSize)
-    return
-  }
-  if (mode == 'number') {
-    mode = 'symbol'
-    fill(cSize)
-    return
-  }
-  if (mode == 'symbol') {
-    mode = 'e'
-    fill(cSize)
-    return
-  }
-  if (mode == 'e') {
-    mode = 'letter'
-    fill(cSize)
-    return
-  }
-}
-
 $(document).bind('keypress', function(e){
    if(e.key == 'm') {
      tglMode()
    }
 });
-
-sgl = false
-
-function tglSingle() {
-  if (sgl) {
-    sgl = false
-  } else {
-    sgl = true
-  }
-
-  fill(cSize)
-}
 
 $(document).bind('keypress', function(e){
    if(e.key == 's') {
@@ -112,15 +77,6 @@ $(document).bind('keypress', function(e){
      toggleMirror()
    }
 });
-
-function tglLine() {
-  if (multiLine) {
-    multiLine = false
-  } else {
-    multiLine = true
-  }
-  fill(cSize)
-}
 
 $(document).bind('keypress', function(e){
   if(e.key == 'l') {
