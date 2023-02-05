@@ -10,7 +10,7 @@ module VisionTest
           server_name = server_id[0]
           server_version = server_id[1] ? server_id[1] : "(pre-0.0.2)"
           auth_required = (server_id[2] == "authreq") ? true : false
-          server.puts Packet.new(:id_client, "vtac_client")
+          server.puts Packet.new(:id_client, "dvc_client")
 
           if auth_required
             print "Password: "
