@@ -28,8 +28,6 @@ require_relative "visiontest/keypresses_sc45.rb"
 require_relative "visiontest/keypresses_sh15.rb"
 require_relative "visiontest/firefoxctrl.rb"
 
-require_relative "visiontest/dvc/dvc.rb"
-
 if ARGV[0] == "--vtac-server"
   $vtac_mode = "server"
   require_relative "visiontest/vtac/vtac.rb"
@@ -37,6 +35,7 @@ elsif ARGV[0] == "--vtac-client"
   $vtac_mode = "client"
   require_relative "visiontest/vtac/vtac.rb"
 else
+  require_relative "visiontest/dvc/dvc.rb"
   VisionTest::FirefoxCtrl.start_driver
   VisionTest::Serial.start_listener
 end
