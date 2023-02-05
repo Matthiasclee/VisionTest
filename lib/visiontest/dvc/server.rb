@@ -4,7 +4,6 @@ module VisionTest
       def self.client_handler(client)
         password_sha256 = File.read("#{ROOT_DIR}/lib/visiontest/dvc/pw_sha256").chomp
 
-        puts 1
         client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/lib/visiontest/dvc/id_server").chomp + "~v#{::VisionTest.version}" + "#{"~authreq" if (password_sha256 != "")}")
         packet = Packet.new(from_packet: client.gets)
         if packet[:type] == "id_client"
@@ -49,7 +48,6 @@ module VisionTest
         while run_server
           @client = @server.accept
           begin
-            puts 2
             client_handler(@client)
           rescue
 
