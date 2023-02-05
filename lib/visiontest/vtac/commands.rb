@@ -89,6 +89,20 @@ module VisionTest
           elsif cmd == "name"
             File.write("#{ROOT_DIR}/lib/visiontest/vtac/id_server", args[0], mode: "w")
             return Packet.new(:response, "Success")
+          elsif cmd == "dvcpassword"
+            if args[0] == "set"
+              pw = Digest::SHA256.hexdigest(args[1].to_s)
+            elsif args[0] == "clear"
+              pw = ""
+            else
+              return Packet.new(:error, "Invalid command")
+            end
+
+            File.write("#{ROOT_DIR}/lib/visiontest/dvc/pw_sha256", pw, mode: "w")
+            return Packet.new(:response, "Success")
+          elsif cmd == "dvcname"
+            File.write("#{ROOT_DIR}/lib/visiontest/dvc/id_server", args[0], mode: "w")
+            return Packet.new(:response, "Success")
           elsif cmd == "reboot"
             `shutdown -r 0`
             return Packet.new(:disconnect, "Reboot")
