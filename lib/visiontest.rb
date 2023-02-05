@@ -34,7 +34,18 @@ if ARGV[0] == "--vtac-server"
 elsif ARGV[0] == "--vtac-client"
   $vtac_mode = "client"
   require_relative "visiontest/vtac/vtac.rb"
+elsif ARGV[0] == "--dvc-client"
+  $dvc_mode = "client"
+  require_relative "visiontest/dvc/dvc.rb"
 else
-  VisionTest::FirefoxCtrl.start_driver
-  VisionTest::Serial.start_listener
+  $dvc_mode = "server"
+  require_relative "visiontest/dvc/dvc.rb"
+  begin
+    VisionTest::FirefoxCtrl.start_driver
+    VisionTest::Serial.start_listener
+  rescue Interrupt
+    STDOUT.puts "Exiting..."
+    VisionTest::FirefoxCtrl.driver.close
+    exit 0
+  end
 end
