@@ -35,19 +35,19 @@ module VisionTest
     # Calibration
 
     Serial.oncode '44' do
-      if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT/vtcalib")
+      if File.exist?("/media/#{ENV['USER']}/VT/vtcalib")
         FirefoxCtrl.driver.execute_script 'toggleSizeOf20();'
         calibrationmode = !calibrationmode
         FirefoxCtrl.driver.execute_script calibrationmode ? 'fill("calibration")' : 'fill(1, false, true)'
       end
     end
     Serial.oncode '48' do
-      if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT/vtcalib")
+      if File.exist?("/media/#{ENV['USER']}/VT/vtcalib")
         FirefoxCtrl.driver.execute_script 'toggleRoomLength();'
         roomlengthmode = !roomlengthmode
       end
     end
 
-    Serial.oncode '4C' do; Calibration.toggleMirror if $mode == :unix && File.exist?("/media/#{ENV['USER']}/VT/vtcalib") end
+    Serial.oncode '4C' do; Calibration.toggleMirror if File.exist?("/media/#{ENV['USER']}/VT/vtcalib") end
   end
 end
