@@ -68,9 +68,13 @@ module VisionTest
                 mirror_line = lines[4].split(" ")
                 ret = mirror_line[2]
               end
+            else
+              return Packet.new(:error, "Invalid command")
             end
 
-            return Packet.new(:response, ret) if defined?("ret") 
+            if defined?("ret") 
+              return Packet.new(:response, ret)
+            end
           elsif cmd == "password"
             if args[0] == "set"
               pw = Digest::SHA256.hexdigest(args[1].to_s)
