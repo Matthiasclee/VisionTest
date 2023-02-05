@@ -54,26 +54,6 @@ $(document).bind('keypress', function(e){
    }
 });
 
-function toggleSizeOf20() {
-  e = document.getElementById('sizeOf20')
-
-  if (e.style.display == 'none') {
-    e.style.display = 'inline'
-  } else {
-    e.style.display = 'none'
-  }
-}
-
-function toggleRoomLength() {
-  e = document.getElementById('roomLength')
-
-  if (e.style.display == 'none') {
-    e.style.display = 'inline'
-  } else {
-    e.style.display = 'none'
-  }
-}
-
 $(document).bind('keypress', function(e){
   if(e.key == '@') {
     toggleSizeOf20()
