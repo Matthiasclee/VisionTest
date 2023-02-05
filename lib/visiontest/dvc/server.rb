@@ -35,7 +35,12 @@ module VisionTest
               end
 
               if packet[:type] == "javascript"
-                client.puts Packet.new(:response, ::VisionTest::FirefoxCtrl.driver.execute_script(packet[:contents]).to_s)
+                begin
+                  resp = ::VisionTest::FirefoxCtrl.driver.execute_script(packet[:contents]).to_s
+                  client.puts Packet.new(:response, resp)
+                rescue
+                  client.puts Packet.new(:error, "JAVASCRIPT_ERROR")
+                end
               end
             elsif packet[:type] == "error"
               puts "Error: " + packet[:contents]
