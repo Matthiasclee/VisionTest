@@ -24,7 +24,7 @@ See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest
 
 #### SH-15
 See the [SH-15 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SH-15%20layout.pdf)
-* `Hide`: Hides/shows the letter size in the bottom cornet
+* `Hide`: Hides/shows the letter size in the bottom corner
 * `Up`: Makes the letters one size bigger
 * `Down`: Makes the letters one size smaller
 * `Mode`: Cycles through modes (LTR/NUM/SYM/E)
