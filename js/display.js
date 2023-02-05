@@ -40,3 +40,12 @@ function tglMode() {
   }
 }
 
+function tglSizeNum() {
+  e = document.getElementById('size')
+
+  if (e.style.display == 'none') {
+    e.style.display = 'inline'
+  } else {
+    e.style.display = 'none'
+  }
+}
