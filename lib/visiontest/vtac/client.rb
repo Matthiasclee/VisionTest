@@ -29,7 +29,7 @@ module VisionTest
           puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"
 
           loop do
-            print "#{server_name}@#{remote_ip}> "
+            print "#{server_name}@#{remote_ip}:[VTAC]> "
             command = STDIN.gets.chomp
             if command == "exit"
               server.close
