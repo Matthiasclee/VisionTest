@@ -28,14 +28,21 @@ module VisionTest
 
           puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"
 
+          mode = :javascript
           loop do
-            print "#{server_name}@#{remote_ip}> "
+            print "#{server_name}@#{remote_ip}:[DVC-#{mode}]> "
             command = STDIN.gets.chomp
             if command == "exit"
               server.close
               exit
+            elsif command == "__mode:javascript"
+              mode = :javascript
+              next
+            elsif command == "__mode:action"
+              mode = :action
+              next
             end
-            server.puts Packet.new(:action, command)
+            server.puts Packet.new(mode, command)
             packet = Packet.new(from_packet: server.gets)
             if packet[:type] == "response"
               puts packet[:contents]
