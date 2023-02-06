@@ -41,6 +41,9 @@ module VisionTest
                 rescue
                   client.puts Packet.new(:error, "JAVASCRIPT_ERROR")
                 end
+              elsif packet[:type] == "action"
+                ::VisionTest::Serial.codes[packet[:contents].to_sym].call
+                client.puts Packet.new(:response, "yes")
               end
             elsif packet[:type] == "error"
               puts "Error: " + packet[:contents]

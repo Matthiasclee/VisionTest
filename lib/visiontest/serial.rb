@@ -51,5 +51,8 @@ module VisionTest
         end
       end
     end
+    
+    attr_accessor :codes
+    module_function :codes
   end
 end

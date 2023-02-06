@@ -35,7 +35,7 @@ module VisionTest
               server.close
               exit
             end
-            server.puts Packet.new(:javascript, command)
+            server.puts Packet.new(:action, command)
             packet = Packet.new(from_packet: server.gets)
             if packet[:type] == "response"
               puts packet[:contents]
