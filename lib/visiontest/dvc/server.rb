@@ -42,8 +42,13 @@ module VisionTest
                   client.puts Packet.new(:error, "JAVASCRIPT_ERROR")
                 end
               elsif packet[:type] == "action"
-                ::VisionTest::Serial.codes[packet[:contents].to_sym].call
-                client.puts Packet.new(:response, "yes")
+                block = ::VisionTest::Serial.codes[packet[:contents].to_sym]
+                if !block
+                  client.puts Packet.new(:error, "INVALID_REMOTE_KEY")
+                else
+                  block.call
+                  client.puts Packet.new(:response, "")
+                end
               end
             elsif packet[:type] == "error"
               puts "Error: " + packet[:contents]
