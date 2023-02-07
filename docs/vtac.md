@@ -35,7 +35,6 @@ You are now connected to the computer with VTAC.
 * `analytics [keypresses] [clear|view <key>]` view or clear keypress analytics data.
 * `config [pxsize|roomlength|mirrored <toggle>] [new setting]` change or view config settings
 * `name [name]` change the `id_server` name of the computer
-* `dvcname [name]` change the `id_server` name of the computer when using dvc
 * `update` uses `git pull` to update the software
 * `reboot` reboots the computer
 * `shutdown` shuts down the computer
