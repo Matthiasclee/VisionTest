@@ -120,7 +120,7 @@ module VisionTest
               return Packet.new(:error, "Invalid command")
             end
           elsif cmd == "reset"
-            out = `cd #{ROOT_DIR};git reset .`
+            out = `cd #{ROOT_DIR};git restore .`
             return Packet.new(:response, out)
           end
           return Packet.new(:error, "Invalid command")
