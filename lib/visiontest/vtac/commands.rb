@@ -84,10 +84,10 @@ module VisionTest
               return Packet.new(:error, "Invalid command")
             end
 
-            File.write("#{ROOT_DIR}/lib/visiontest/vtac/pw_sha256", pw, mode: "w")
+            File.write("#{ROOT_DIR}/conf/vtac_pw", pw, mode: "w")
             return Packet.new(:response, "Success")
           elsif cmd == "name"
-            File.write("#{ROOT_DIR}/lib/visiontest/vtac/id_server", args[0], mode: "w")
+            File.write("#{ROOT_DIR}/conf/id_server", args[0], mode: "w")
             return Packet.new(:response, "Success")
           elsif cmd == "dvcpassword"
             if args[0] == "set"
@@ -98,10 +98,7 @@ module VisionTest
               return Packet.new(:error, "Invalid command")
             end
 
-            File.write("#{ROOT_DIR}/lib/visiontest/dvc/pw_sha256", pw, mode: "w")
-            return Packet.new(:response, "Success")
-          elsif cmd == "dvcname"
-            File.write("#{ROOT_DIR}/lib/visiontest/dvc/id_server", args[0], mode: "w")
+            File.write("#{ROOT_DIR}/conf/dvc_pw", pw, mode: "w")
             return Packet.new(:response, "Success")
           elsif cmd == "reboot"
             `shutdown -r 0`

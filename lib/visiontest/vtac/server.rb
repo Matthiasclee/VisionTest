@@ -4,9 +4,9 @@ module VisionTest
       @server = nil
 
       def self.client_handler(client)
-        password_sha256 = File.read("#{ROOT_DIR}/lib/visiontest/vtac/pw_sha256").chomp
+        password_sha256 = File.read("#{ROOT_DIR}/conf/vtac_pw").chomp
 
-        client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/lib/visiontest/vtac/id_server").chomp + "~v#{::VisionTest.version}" + "#{"~authreq" if (password_sha256 != "")}")
+        client.puts Packet.new(:id_server, File.read("#{ROOT_DIR}/conf/id_server").chomp + "~v#{::VisionTest.version}" + "#{"~authreq" if (password_sha256 != "")}")
         packet = Packet.new(from_packet: client.gets)
         if packet[:type] == "id_client"
           if password_sha256 != ""
