@@ -107,6 +107,13 @@ module VisionTest
             `shutdown -P 0`
             return Packet.new(:disconnect, "Shut down")
           elsif cmd == "update"
+            if args[0] == "force"
+              out = `cd #{ROOT_DIR};git pull --force`
+              return Packet.new(:response, out)
+            elsif args[0]
+              return Packet.new(:error, "Invalid command")
+            end
+
             out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
           elsif cmd == "version"
