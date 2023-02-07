@@ -72,7 +72,7 @@ In this case, after the handshake is completed as seen above, the server will wa
 
 If the password is correct, the server will send a `response` packet containing `"AUTH_SUCCESS"`, and allow commands to be sent. If not, the server will send an `error` packet containing `"BAD_PASSWORD"`.
 
-The password is stored in `lib/visiontest/dvc/pw_sha256` as an SHA256 hash.
+The password is stored in `conf/dvc_pw` as an SHA256 hash.
 
 ### Commands and responses
 Once the handshake is completed, the server will wait for a `javascript` or `action` packet. That packet looks like this:
