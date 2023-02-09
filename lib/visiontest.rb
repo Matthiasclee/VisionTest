@@ -38,8 +38,13 @@ elsif ARGV[0] == "--dvc-client"
   $dvc_mode = "client"
   require_relative "visiontest/dvc/dvc.rb"
 else
-  $dvc_mode = "server"
-  require_relative "visiontest/dvc/dvc.rb"
+  dvcenable = File.read(VisionTest::ROOT_DIR + "/conf/dvcenable").chomp
+
+  if dvcenable == "true"
+    $dvc_mode = "server"
+    require_relative "visiontest/dvc/dvc.rb"
+  end
+
   begin
     VisionTest::FirefoxCtrl.start_driver
     VisionTest::Serial.start_listener
