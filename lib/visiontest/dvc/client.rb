@@ -41,6 +41,8 @@ module VisionTest
             elsif command == "__mode:action"
               mode = :action
               next
+            elsif command == ""
+              next
             end
             server.puts Packet.new(mode, command)
             packet = Packet.new(from_packet: server.gets)

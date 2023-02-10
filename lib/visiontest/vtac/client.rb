@@ -34,6 +34,8 @@ module VisionTest
             if command == "exit"
               server.close
               exit
+            elsif command == ""
+              next
             end
             server.puts Packet.new(:command, command)
             packet = Packet.new(from_packet: server.gets)
