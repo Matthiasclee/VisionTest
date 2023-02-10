@@ -35,10 +35,10 @@ module VisionTest
             if command == "exit"
               server.close
               exit
-            elsif command == "__mode:javascript"
+            elsif command == "!javascript"
               mode = :javascript
               next
-            elsif command == "__mode:action"
+            elsif command == "!action"
               mode = :action
               next
             elsif command == ""
