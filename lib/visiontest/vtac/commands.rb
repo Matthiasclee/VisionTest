@@ -124,13 +124,13 @@ module VisionTest
             return Packet.new(:response, out)
           elsif cmd == "dvcenable"
             if args[0] == "true"
-              File.write("conf/dvcenable", "true", mode: "w")
+              File.write("#{ROOT_DIR}/conf/dvcenable", "true", mode: "w")
             elsif args[0] == "false"
-              File.write("conf/dvcenable", "false", mode: "w")
+              File.write("#{ROOT_DIR}/conf/dvcenable", "false", mode: "w")
             elsif args[0]
               return Packet.new(:error, "Invalid command")
             else
-              return Packet.new(:response, File.read("conf/dvcenable").chomp)
+              return Packet.new(:response, File.read("#{ROOT_DIR}/conf/dvcenable").chomp)
             end
             return Packet.new(:response, "Success")
           end
