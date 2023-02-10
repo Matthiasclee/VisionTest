@@ -43,6 +43,7 @@ You are now connected to the computer with VTAC.
 * `dvcpassword [clear|set <password>]` sets or clears the DVC password
 * `version [master|<version>]` Switches to a different version of VTAC *see [version switching](#version-switching)*
 * `reset` Resets all config with `git restore .` command
+* `dvcenable [true|false]` Enables or disables DVC
 
 ### Version switching
 VTAC allows you to switch versions with the `version` command.
