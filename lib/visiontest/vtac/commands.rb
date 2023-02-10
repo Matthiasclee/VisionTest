@@ -128,9 +128,9 @@ module VisionTest
             elsif args[0] == "false"
               File.write("conf/dvcenable", "false", mode: "w")
             elsif args[0]
-              return Packet.new(:response, File.read("conf/dvcenable").chomp)
-            else
               return Packet.new(:error, "Invalid command")
+            else
+              return Packet.new(:response, File.read("conf/dvcenable").chomp)
             end
             return Packet.new(:response, "Success")
           end
