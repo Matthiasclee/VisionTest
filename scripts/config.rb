@@ -5,12 +5,14 @@ require_relative "../lib/visiontest/vtac/packet.rb"
 require_relative "../lib/visiontest/dvc/packet.rb"
 
 o = {
-  load: { has_argument: true },
-  save: { has_argument: true },
+  load: { has_argument: false },
+  save: { has_argument: false },
   password: { has_argument: true }
 }
 
-s = {}
+s = {
+  o: { has_argument: true }
+}
 
 args = ArgsParser::Args.new(options: o, switches: s)
 
@@ -45,19 +47,6 @@ if args.options[:save] # Export data
   data[:version] = id_server[1]
   data[:auth] = id_server[2] ? true : false
 
-  # Config options
-
-  data[:config] = {}
-
-  server.puts VisionTest::VTAC::Packet.new(:command, "config pxsize")
-  data[:config][:pxsize] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents].to_i
-
-  server.puts VisionTest::VTAC::Packet.new(:command, "config roomlength")
-  data[:config][:roomlength] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents]
-
-  server.puts VisionTest::VTAC::Packet.new(:command, "config mirrored")
-  data[:config][:mirrored] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents].to_i
-
   # DVC
 
   server.puts VisionTest::VTAC::Packet.new(:command, "dvcenable")
@@ -73,5 +62,18 @@ if args.options[:save] # Export data
     data[:dvcauth] = false
   end
 
-  puts data.to_json
+  # Config options
+
+  data[:config] = {}
+
+  server.puts VisionTest::VTAC::Packet.new(:command, "config pxsize")
+  data[:config][:pxsize] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents].to_i
+
+  server.puts VisionTest::VTAC::Packet.new(:command, "config roomlength")
+  data[:config][:roomlength] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents]
+
+  server.puts VisionTest::VTAC::Packet.new(:command, "config mirrored")
+  data[:config][:mirrored] = VisionTest::VTAC::Packet.new(from_packet: server.gets.chomp)[:contents].to_i
+
+  File.write(args.switches[:o], data.to_json, mode: "w")
 end
