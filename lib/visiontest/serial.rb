@@ -17,7 +17,13 @@ module VisionTest
     @codes = {}
 
     def self.oncode(code, &block)
-      @codes[code.to_sym] = block
+      if code.class == Array
+        code.each do |c|
+          @codes[c.to_sym] = block
+        end
+      else
+        @codes[code.to_sym] = block
+      end
     end
 
     def self.start_listener
