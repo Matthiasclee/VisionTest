@@ -26,6 +26,7 @@ require_relative "visiontest/serial.rb"
 require_relative "visiontest/analytics.rb"
 require_relative "visiontest/keypresses_sc45.rb"
 require_relative "visiontest/keypresses_sh15.rb"
+require_relative "visiontest/keypresses_bw7070.rb"
 require_relative "visiontest/firefoxctrl.rb"
 
 if ARGV[0] == "--vtac-server"
