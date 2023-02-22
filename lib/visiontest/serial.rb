@@ -40,7 +40,7 @@ module VisionTest
           call = false
           call = true if remote_id == @sc_45_beginning
           
-          if remote_id == @sh_15_beginning
+          if remote_id == @sh_15_beginning || remote_id == @bw_7070_beginning
             if DateTime.now.strftime('%Q').to_i - last_sh15_keypress > 200
               call = true
               last_sh15_keypress = DateTime.now.strftime('%Q').to_i
