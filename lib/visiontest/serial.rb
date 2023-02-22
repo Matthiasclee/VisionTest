@@ -2,6 +2,13 @@ module VisionTest
   module Serial
     @sc_45_beginning = "N00FF"
     @sh_15_beginning = "N708F"
+    @bw_7070_beginning = "B6A"
+
+    @remote_names = {
+      "N00FF" => "sc45",
+      "N708F" => "sh15",
+      "B6A" => "bw7070"
+    }
 
     if ARGV[0] != "--vtac-client"
       @ser_port = ENV["receiver_port"] ? ENV["receiver_port"] : (STDERR.puts "VisionTest: receiver_port not set";exit(1))
