@@ -17,12 +17,13 @@ module VisionTest
       ser = SerialPort.new(@ser_port, 9600, 8, 1, SerialPort::NONE)
 
       cdat = ''
+      complete_transmission = false
       rcvstat = 0 # not started
       last_sh15_keypress = DateTime.now.strftime('%Q').to_i - 2
       loop do
-        if cdat.length == 7
-          code = cdat[5..6]
-          remote_id = cdat[0..4]
+        if complete_transmission
+          code = cdat[-2..-1]
+          remote_id = cdat[0..-3]
           call = false
           call = true if remote_id == @sc_45_beginning
           
@@ -39,12 +40,17 @@ module VisionTest
           end
 
           cdat = ''
+          complete_transmission = false
         else
           d = ser.read(1)
 
           if d == "\r"
             ser.read(1)
-            cdat = ''
+            if cdat == "N!"
+              cdat = ''
+            else
+              complete_transmission = true
+            end
           else
             cdat << d
           end
