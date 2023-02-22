@@ -22,8 +22,8 @@ module VisionTest
       last_sh15_keypress = DateTime.now.strftime('%Q').to_i - 2
       loop do
         if complete_transmission
-          code = cdat[5..6]
-          remote_id = cdat[0..4]
+          code = cdat[-2..-1]
+          remote_id = cdat[0..-3]
           call = false
           call = true if remote_id == @sc_45_beginning
           
