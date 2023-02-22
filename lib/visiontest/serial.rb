@@ -47,6 +47,8 @@ module VisionTest
             end
           end 
 
+          code = "#{@remote_names[remote_id]}#{code}"
+
           if @codes[code.to_sym] && call
             fork{Analytics.record_keypress_analytics code}
             @codes[code.to_sym].call
