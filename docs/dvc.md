@@ -24,11 +24,11 @@ matthias-vt@192.168.0.230:[DVC-javascript]> up()
 This will increase the size of the letters.
 
 #### Actions
-In action mode (indicated by `[DVC-action]` after the prompt), you input remote key hex codes, and the machine runs the code for that button. Example:
+In action mode (indicated by `[DVC-action]` after the prompt), you input remote key hex codes preceeded by the remote model, and the machine runs the code for that button. Example:
 ```
-matthias-vt@192.168.0.230:[DVC-action]> A0
+matthias-vt@192.168.0.230:[DVC-action]> sh15A0
 ```
-This will run the code for the `A0` button, which shows the screensaver.
+This will run the code for the `A0` button on the `sh15` remote, which shows the screensaver.
 
 Actions run through DVC are not counted in analytics data.
 
