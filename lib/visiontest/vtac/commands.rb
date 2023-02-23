@@ -107,15 +107,15 @@ module VisionTest
             `shutdown -P 0`
             return Packet.new(:disconnect, "Shut down")
           elsif cmd == "update"
-            out = `cd #{ROOT_DIR};git pull --force`
+            out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
           elsif cmd == "version"
             if args[0] == "master"
-              out = `cd #{ROOT_DIR};git checkout master --force`
+              out = `cd #{ROOT_DIR};git checkout master`
               return Packet.new(:response, out)
             elsif args[0]
-              out = `cd #{ROOT_DIR};git checkout tags/v#{args[0].gsub(/[;$&]/, "")} --force`
-              return Packet.new(:response, "Success")
+              out = `cd #{ROOT_DIR};git checkout tags/v#{args[0].gsub(/[;$&]/, "")}`
+              return Packet.new(:response, out)
             else
               return Packet.new(:error, "Invalid command")
             end
