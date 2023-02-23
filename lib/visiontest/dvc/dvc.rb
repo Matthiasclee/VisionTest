@@ -10,10 +10,15 @@ module VisionTest
 end
 
 if $dvc_mode == "client"
-  host = $ARGV[1]
-  port = 5583
-  port = ARGV[2].to_i if ARGV[2]
-  VisionTest::DVC::Client.connect(host, port: port)
+  begin
+    host = $ARGV[1]
+    port = 5583
+    port = ARGV[2].to_i if ARGV[2]
+    VisionTest::DVC::Client.connect(host, port: port)
+  rescue Interrupt
+    STDOUT.puts "\nExiting..."
+    exit 0
+  end
 elsif $dvc_mode == "server"
   port = 5583
   port = ARGV[1].to_i if ARGV[1]

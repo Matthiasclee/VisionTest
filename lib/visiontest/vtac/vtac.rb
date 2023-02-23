@@ -13,10 +13,15 @@ module VisionTest
 end
 
 if $vtac_mode == "client"
-  host = $ARGV[1]
-  port = 5582
-  port = ARGV[2].to_i if ARGV[2]
-  VisionTest::VTAC::Client.connect(host, port: port)
+  begin
+    host = $ARGV[1]
+    port = 5582
+    port = ARGV[2].to_i if ARGV[2]
+    VisionTest::VTAC::Client.connect(host, port: port)
+  rescue Interrupt
+    STDOUT.puts "\nExiting..."
+    exit 0
+  end
 elsif $vtac_mode == "server"
   port = 5582
   port = ARGV[1].to_i if ARGV[1]
