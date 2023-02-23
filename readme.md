@@ -3,7 +3,7 @@
 VisionTest is a linux-based digital visual acuity chart.
 
 ### Usage
-VisionTest can be used with a keyboard, but the recommended way is with a remote control. *see hardware section*
+VisionTest can be used with a keyboard or a remote and receiver (*recommended*)
 
 #### SC-45
 See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SC-45%20layout.pdf)
@@ -72,7 +72,14 @@ Unzip it to the user's home directory. If the version is after commit `d60420e`,
 ### Configuration
 See "Ubuntu Calibration/Setup" in the [VisionTest Install and Setup Guide](https://github.com/Matthiasclee/VisionTest/blob/master/docs/VisionTest%20install%20guide.pdf)
 
-### Hardware
-* PC: Dell Optiplex 7450 AIO
-* Receiver: [Celadon RCV-3000](http://www.celadon.com/infrared-receiver-specs/RCV-3000_USB_receiver_specs.html)
-* Remote: [Celadon SC-45](http://www.celadon.com/remote-control-specs/SC-45-remote-control.htm)
+### Supported hardware
+* PC (recommended): Dell Optiplex 7450 AIO
+* PC (supported):
+  * Runs Ubuntu 20.04
+  * Minimum 1 USB port
+  * Ethernet jack *or* supported WiFi card (for installation and updates)
+* Receiver: [Celadon RCV-3000](http://www.celadon.com/infrared-receiver-specs/RCV-3000_USB_receiver_specs.html) *(others may work; VT has only been tested with the RCV-3000)*
+* Remotes:
+  * [Celadon SC-45](http://www.celadon.com/remote-control-specs/SC-45-remote-control.htm)
+  * [Celadon SH-15](http://www.celadon.com/remote-control-specs/SH-15-remote-control.htm) (as of [v0.0.2](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.0.2))
+  * [Celadon BW7070](http://www.celadon.com/remote-control-specs/BW7070-remote-control.htm) (as of [v0.2.0](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.2.0))
