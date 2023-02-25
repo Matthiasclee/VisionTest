@@ -6,8 +6,6 @@
 |
 [Github](https://github.com/Matthiasclee/VisionTest)
 
-VisionTest is a linux-based digital visual acuity program that is made to be easy to deploy and manage.
-VisionTest makes use of the VTAC protocol to enable machines to be managed and updated over the network.
 
 ### Docs
 * [VisionTest Portable Setup Guide \[PDF\]](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/docs/VisionTest%20Portable%20setup%20guide.pdf)
