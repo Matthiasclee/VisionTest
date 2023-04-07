@@ -33,7 +33,7 @@ You are now connected to the computer with VTAC.
 
 #### VTAC commands
 * `analytics [keypresses] [clear|view <key>]` view or clear keypress analytics data.
-* `config [pxsize|roomlength|mirrored <toggle>] [new setting]` change or view config settings
+* `config [pxsize|roomlength|mirrored [toggle|1|0]] [new setting]` change or view config settings
 * `name [name]` change the `id_server` name of the computer
 * `update` uses `git pull` to update the software
 * `reboot` reboots the computer
