@@ -114,7 +114,7 @@ module VisionTest
               out = `cd #{ROOT_DIR};git checkout master`
               return Packet.new(:response, out)
             elsif args[0]
-              out = `cd #{ROOT_DIR};git -c advice.detachedHead=false checkout tags/v#{args[0].gsub(/[;$&]/, "")} 2>&1 >/dev/null | cat`
+              out = `cd #{ROOT_DIR};git -c advice.detachedHead=false checkout tags/v#{args[0].gsub(/[;$&|]/, "")} 2>&1 >/dev/null | cat`
               out = "Success" if out.chomp == ""
               return Packet.new(:response, out)
             else
