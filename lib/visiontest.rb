@@ -48,7 +48,7 @@ else
 
   begin
     VisionTest::FirefoxCtrl.start_driver
-    Thread.new {VisionTest::Serial.start_listener} unless ENV['receiver_port'] == "noserial"
+    VisionTest::Serial.start_listener unless ENV['receiver_port'] == "noserial"
     loop do
     end
   rescue Interrupt
