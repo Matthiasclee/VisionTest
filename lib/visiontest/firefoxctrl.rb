@@ -4,7 +4,7 @@ module VisionTest
     def self.start_driver
       options = Selenium::WebDriver::Firefox::Options.new(args: ['--kiosk'])
       @driver = Selenium::WebDriver.for :firefox, capabilities: options
-      @driver.navigate.to 'file://' + ROOT_DIR + '/table.html'
+      @driver.navigate.to 'file://' + ROOT_DIR + '/html/table.html'
     end
 
     attr_reader :driver
