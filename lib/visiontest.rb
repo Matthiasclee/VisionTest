@@ -49,7 +49,9 @@ else
   begin
     VisionTest::FirefoxCtrl.start_driver
     VisionTest::Serial.start_listener unless ENV['receiver_port'] == "noserial"
-    loop do
+    if ENV['receiver_port'] == "noserial"
+      loop do
+      end
     end
   rescue Interrupt
     STDOUT.puts "Exiting..."
