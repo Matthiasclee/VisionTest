@@ -52,3 +52,6 @@ export receiver_port=/dev/ttyUSB0 # or whatever yours is
 ```
 
 Now, VisionTest can be run with `ruby ./main.rb` in the repo.
+
+### Setup with no remote
+If you don't have a remote, run VisionTest with `receiver_port` set as `noserial`.
