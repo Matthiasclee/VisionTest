@@ -50,6 +50,7 @@ else
     VisionTest::FirefoxCtrl.start_driver
     VisionTest::Serial.start_listener unless ENV['receiver_port'] == "noserial"
     if ENV['receiver_port'] == "noserial"
+      STDOUT.puts "VisionTest: Running with no serial port"
       loop do
       end
     end
