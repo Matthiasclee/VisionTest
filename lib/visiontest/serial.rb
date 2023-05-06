@@ -51,7 +51,11 @@ module VisionTest
 
           if @codes[code.to_sym] && call
             fork{Analytics.record_keypress_analytics code}
-            @codes[code.to_sym].call
+            begin
+              @codes[code.to_sym].call
+            rescue => e
+              STDERR;puts "VisionTest: Error: #{e.message}"
+            end
           end
 
           cdat = ''
