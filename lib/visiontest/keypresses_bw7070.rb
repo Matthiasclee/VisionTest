@@ -7,9 +7,6 @@ module VisionTest
     # Hide button
     Serial.oncode ['bw7070F7', 'bw7070B7'] do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
 
-    # Screensaver
-    Serial.oncode ['bw70709F', 'bw7070DF'] do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
-
     # Randomize letters
     Serial.oncode ['bw70700F', 'bw70704F'] do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
 
@@ -21,6 +18,18 @@ module VisionTest
 
     # SGL
     Serial.oncode ['bw707030', 'bw707070'] do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
+
+    # Location controls
+    Serial.oncode ['bw70709F', 'bw7070DF'] do
+      if FirefoxCtrl.page == "table.html"
+        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/pediatricsvideos.html'
+        FirefoxCtrl.page = "pediatricsvideos.html"
+      elsif FirefoxCtrl.page == "pediatricsvideos.html"
+        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/table.html'
+        FirefoxCtrl.page = "table.html"
+      end
+    end
+
   end
 end
 
