@@ -23,3 +23,7 @@ function down(){
     document.getElementById(selectedvideo).classList.add("selected") 
   }
 }
+
+function getSelectedVideo(){
+  return selectedvideo
+}

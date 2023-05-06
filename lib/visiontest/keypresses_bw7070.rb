@@ -14,7 +14,13 @@ module VisionTest
     Serial.oncode ['bw707028', 'bw707068'] do; FirefoxCtrl.driver.execute_script 'tglLine()' end
 
     # SGL
-    Serial.oncode ['bw707030', 'bw707070'] do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
+    Serial.oncode ['bw707030', 'bw707070'] do
+      selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
+      getLocationCode = "return document.getElementById(#{selectedvideo}).href"
+      location = FirefoxCtrl.driver.execute_script getLocationCode
+      FirefoxCtrl.driver.navigate.to location
+      FirefoxCtrl.page = location
+    end
 
     # Location controls
     Serial.oncode ['bw70709F', 'bw7070DF'] do
