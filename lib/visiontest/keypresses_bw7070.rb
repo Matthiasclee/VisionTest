@@ -10,9 +10,6 @@ module VisionTest
     # Randomize letters
     Serial.oncode ['bw70700F', 'bw70704F'] do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
 
-    # Mode buttons
-    Serial.oncode ['bw7070EF', 'bw7070AF'] do; FirefoxCtrl.driver.execute_script 'tglMode()' end
-
     # Line
     Serial.oncode ['bw707028', 'bw707068'] do; FirefoxCtrl.driver.execute_script 'tglLine()' end
 
@@ -21,13 +18,13 @@ module VisionTest
 
     # Location controls
     Serial.oncode ['bw70709F', 'bw7070DF'] do
-      if FirefoxCtrl.page == "table.html"
-        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/pediatricsvideos.html'
-        FirefoxCtrl.page = "pediatricsvideos.html"
-      elsif FirefoxCtrl.page == "pediatricsvideos.html"
-        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/table.html'
-        FirefoxCtrl.page = "table.html"
-      end
+      FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/table.html'
+      FirefoxCtrl.page = "table.html"
+    end
+
+    Serial.oncode ['bw7070EF', 'bw7070AF'] do
+      FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/pediatricsvideos.html'
+      FirefoxCtrl.page = "pediatricsvideos.html"
     end
 
   end
