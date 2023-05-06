@@ -1,6 +1,6 @@
 let selectedvideo=1
 
-function up(){
+function svup(){
   if (selectedvideo == 1){
     document.getElementById(1).classList.remove("selected") 
     document.getElementById(3).classList.add("selected") 
@@ -12,7 +12,7 @@ function up(){
   }
 }
 
-function down(){
+function svdown(){
   if (selectedvideo == 3){
     document.getElementById(3).classList.remove("selected") 
     document.getElementById(1).classList.add("selected") 
