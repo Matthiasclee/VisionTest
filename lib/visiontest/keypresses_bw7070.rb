@@ -15,6 +15,12 @@ module VisionTest
       FirefoxCtrl.driver.execute_script(pausevideocode)
     end
 
+    # Restart video
+    Serial.oncode ['bw707028', 'bw707068'] do
+      restartvideocode = "document.getElementsByTagName('video')[0].currentTime=0"
+      FirefoxCtrl.driver.execute_script(restartvideocode)
+    end
+
     # Go to video
     Serial.oncode ['bw707030', 'bw707070'] do
       selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
