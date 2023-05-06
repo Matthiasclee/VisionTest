@@ -4,6 +4,18 @@ module VisionTest
     Serial.oncode ['bw707057', 'bw707017'] do; FirefoxCtrl.driver.execute_script 'svup()' end
     Serial.oncode ['bw70703F', 'bw70707F'] do; FirefoxCtrl.driver.execute_script 'svdown()' end
 
+    # Play/pause
+    Serial.oncode ['bw70700F', 'bw70704F'] do
+      playvideocode = "document.getElementsByTagName('video')[0].play()"
+      FirefoxCtrl.driver.execute_script(playvideocode)
+    end
+
+    Serial.oncode ['bw7070F7', 'bw7070B7'] do
+      pausevideocode = "document.getElementsByTagName('video')[0].pause()"
+      FirefoxCtrl.driver.execute_script(pausevideocode)
+    end
+
+    # Go to video
     Serial.oncode ['bw707030', 'bw707070'] do
       selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
       getLocationCode = "return document.getElementById(#{selectedvideo}).href"
