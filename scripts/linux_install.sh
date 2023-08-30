@@ -16,7 +16,8 @@ echo "Installing packages"
 sudo apt-get install ruby ruby-dev gcc make automake git firefox-geckodriver unclutter libgmp-dev libgmp3-dev libpcre3 libpcre3-dev -y
 
 echo "Installing gems"
-sudo gem install selenium-webdriver ffi rbtext serialport json digest
+sudo gem install selenium-webdriver -v 4.9.0
+sudo gem install ffi rbtext serialport json digest
 
 echo "Adding user to dialout group"
 sudo usermod -a -G dialout $USER
