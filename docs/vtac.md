@@ -41,7 +41,7 @@ You are now connected to the computer with VTAC.
 * `exit` ends the session
 * `password [clear|set <password>]` sets or clears the VTAC password
 * `dvcpassword [clear|set <password>]` sets or clears the DVC password
-* `version [master|<version>]` Switches to a different version of VTAC *see [version switching](#version-switching)*
+* `version [master|<version>]` Switches to a different version of VisionTest *see [version switching](#version-switching)*
 * `reset` Resets all config with `git restore .` command
 * `dvcenable [true|false]` Enables or disables DVC
 
@@ -60,7 +60,7 @@ To switch to a specific version, first ensure you have that version on the Visio
 version master
 update
 ```
-Now, run `version <version number>` to switch to that version. You will need to reboot the computer, or restart the VTAC server for the changes to take effect.
+Now, run `version <version number>` to switch to that version. You will need to reboot the computer with the `reboot` command for changes to take effect.
 *Note: \<version number\> is just the number \(1.2.3\) without the "v" in front of it. If switching to a beta, include the "-beta" at the end.*
 
 
