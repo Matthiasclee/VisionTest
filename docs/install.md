@@ -29,8 +29,7 @@ git clone https://github.com/Matthiasclee/VisionTest.git
 To install VisionTest's dependencies (miscellaneous apt packages and ruby gems), run the script: `scripts/setup/install_dependencies.sh`
 
 ```sh
-cd scripts/setup
-bash ./install_dependencies.sh
+bash scripts/setup/install_dependencies.sh
 ```
 
 ### Step 3: Configure permissions *required*
@@ -38,8 +37,7 @@ This step adds your user to the `dialout` group, which is necessary to read data
 To do this, run the script: `scripts/setup/setup_permissions.sh`
 
 ```sh
-cd scripts/setup
-bash ./setup_permissions.sh
+bash scripts/setup/setup_permissions.sh
 ```
 
 ### Step 4: Add receiver port to bashrc *optional*
