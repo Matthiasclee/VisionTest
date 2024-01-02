@@ -2,14 +2,25 @@
 
 # Install programs in necessary
 if [ "$(which nmap)" == "" ]; then
+  echo "Installing Nmap"
   sudo apt install nmap -y
 fi
 if [ "$(which jq)" == "" ]; then
+  echo "Installing JQ"
   sudo apt install jq -y
 fi
 
-nmap_out="$(nmap 192.168.0.0/24 -p 5582 --open | grep -oP '((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}')"
+network_info=$(ip -o -f inet addr show | awk '/scope global/ {print $4}')
+IFS='/' read -r -a network_array <<< "$network_info"
+ip_address="${network_array[0]}"
+subnet="${network_array[1]}"
+
+echo "Scanning Network..."
+
+nmap_out="$(nmap "$ip_address/$subnet" -p 5582 --open | grep -oP '((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}')"
 readarray nmap_out_arr <<< "$nmap_out"
+
+echo "Done!"
 
 if [ "$1" == "--no-server-info" ]; then
   echo "$nmap_out"
