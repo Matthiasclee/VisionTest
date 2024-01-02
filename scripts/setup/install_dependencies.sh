@@ -7,8 +7,8 @@ sudo apt-get install ruby ruby-dev gcc make automake git firefox-geckodriver unc
 echo "Installing gems (you may be asked for your password)"
 
 if [ "$1" == "--gem-no-sudo" ]; then
-  sudo gem install selenium-webdriver -v 4.9.0
-  sudo gem install ffi rbtext serialport json digest
+  gem install selenium-webdriver -v 4.9.0
+  gem install ffi rbtext serialport json digest
 else
   sudo gem install selenium-webdriver ffi rbtext serialport json
 fi
