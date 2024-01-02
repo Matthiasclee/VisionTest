@@ -34,7 +34,7 @@ Example packet:
 #### Contents for packet types
 * `command`: Client's command
 * `response`: Server's response to the command
-* `id_server`: `<server name>~<VisionTest version>` (only contains server name in versions later than `0.0.2`)
+* `id_server`: `<server name>~<VisionTest version>` (Does not contain server version prior to version `0.0.2`)
 * `id_client`: `vtac_client` (this doesn't change)
 * `error`: Error message
 * `disconnect`: Reason for disconnect
