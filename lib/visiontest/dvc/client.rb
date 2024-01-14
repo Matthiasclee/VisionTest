@@ -12,6 +12,10 @@ module VisionTest
           auth_required = (server_id[2] == "authreq") ? true : false
           server.puts Packet.new(:id_client, "dvc_client")
 
+          sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
+
+          puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"
+
           if auth_required
             print "Password: "
             server.puts Packet.new(:password, STDIN.gets.chomp)
@@ -23,10 +27,6 @@ module VisionTest
               exit 1
             end
           end
-
-          sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
-
-          puts "Connected to #{server_name}@#{remote_ip}. Server version: #{server_version}"
 
           mode = :javascript
           loop do
