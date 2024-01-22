@@ -1,3 +1,3 @@
 $from_main_rb=true
-#load visiontest
+# Load visiontest
 require_relative "lib/visiontest.rb"
