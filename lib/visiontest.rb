@@ -9,7 +9,7 @@ end
 ivtver_file = Dir.home + "/.ivtver"
 
 prev_vt_ver = :none
-if !File.exists?(ivtver_file)
+if !File.exist?(ivtver_file)
   prev_vt_ver = nil
   File.write(ivtver_file, VisionTest.version, mode: "w")
 elsif File.read(ivtver_file).chomp != VisionTest.version
