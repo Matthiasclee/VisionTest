@@ -46,3 +46,13 @@ function toggle_playback(){
     video.pause()
   }
 }
+
+function skip_back(){
+  video = document.getElementById("videofeed")
+  video.currentTime -= 10
+}
+
+function skip_ahead(){
+  video = document.getElementById("videofeed")
+  video.currentTime += 10
+}
