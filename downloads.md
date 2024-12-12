@@ -10,6 +10,7 @@ Downloads
 Download [(zip)](https://github.com/Matthiasclee/VisionTest/archive/refs/heads/master.zip)
 
 ### Stable releases
+* v0.2.5 [(zip)](https://github.com/Matthiasclee/VisionTest/archive/refs/tags/v0.2.5.zip) [(view release)](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.2.5) (Dec. 11, 2024)
 * v0.2.4 [(zip)](https://github.com/Matthiasclee/VisionTest/archive/refs/tags/v0.2.4.zip) [(view release)](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.2.4) (Jan. 2, 2024)
 * v0.2.3 [(zip)](https://github.com/Matthiasclee/VisionTest/archive/refs/tags/v0.2.3.zip) [(view release)](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.2.3) (Apr. 26, 2023)
 * v0.2.2 [(zip)](https://github.com/Matthiasclee/VisionTest/archive/refs/tags/v0.2.2.zip) [(view release)](https://github.com/Matthiasclee/VisionTest/releases/tag/v0.2.2) (Apr. 7, 2023)
