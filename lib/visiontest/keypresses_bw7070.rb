@@ -4,15 +4,15 @@ module VisionTest
     Serial.oncode ['bw707057', 'bw707017'] do; FirefoxCtrl.driver.execute_script 'svup()' end
     Serial.oncode ['bw70703F', 'bw70707F'] do; FirefoxCtrl.driver.execute_script 'svdown()' end
 
-    # Play/pause
-    #Serial.oncode ['bw70700F', 'bw70704F'] do
-    #  FirefoxCtrl.driver.execute_script(playvideocode)
-    #end
+    # Skip back
+    Serial.oncode ['bw70700F', 'bw70704F'] do
+      FirefoxCtrl.driver.execute_script("skip_back()")
+    end
 
-    #Serial.oncode ['bw7070F7', 'bw7070B7'] do
-    #  pausevideocode = "document.getElementsByTagName('video')[0].pause()"
-    #  FirefoxCtrl.driver.execute_script(pausevideocode)
-    #end
+    # Skip ahead
+    Serial.oncode ['bw7070F7', 'bw7070B7'] do
+      FirefoxCtrl.driver.execute_script("skip_ahead()")
+    end
 
     # Play/pause video
     Serial.oncode ['bw707028', 'bw707068'] do
