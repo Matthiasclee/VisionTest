@@ -40,7 +40,7 @@ function start_video_playback(){
 function toggle_playback(){
   video = document.getElementById("videofeed")
 
-  if video.paused{
+  if (video.paused) {
     video.play()
   } else {
     video.pause()
