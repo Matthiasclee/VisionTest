@@ -11,3 +11,8 @@ a{
 a.selected{
   color:blue;
 }
+
+#videofeed{
+  height: 100%;
+  width: 100%;
+}
