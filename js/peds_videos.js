@@ -29,7 +29,7 @@ function getSelectedVideo(){
   return selectedvideo
 }
 
-function start_video(){
+function start_video_playback(){
   video = document.getElementById("videofeed")
   video_name = location.href.split("#")[1] 
 
