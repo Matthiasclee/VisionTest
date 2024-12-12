@@ -36,3 +36,13 @@ function start_video(){
   video.src = `videos/${video_name}`
   video.play()
 }
+
+function toggle_playback(){
+  video = document.getElementById("videofeed")
+
+  if video.paused{
+    video.play()
+  } else {
+    video.pause()
+  }
+}
