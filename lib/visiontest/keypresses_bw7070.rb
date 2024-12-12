@@ -42,4 +42,3 @@ module VisionTest
 
   end
 end
-
