@@ -1,5 +1,5 @@
 let selectedvideo=1
-let selectedvideomax=3
+let selectedvideomax=4
 
 function svup(){
   if (selectedvideo == 1){
