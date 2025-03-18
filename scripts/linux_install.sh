@@ -16,7 +16,21 @@ echo "Removing unattended upgrades"
 sudo apt purge unattended-upgrades
 
 echo "Installing packages"
-sudo apt-get install ruby ruby-dev gcc make automake git firefox-geckodriver unclutter libgmp-dev libgmp3-dev libpcre3 libpcre3-dev ubuntu-restricted-extras install libavcodec58 ffmpeg -y
+sudo apt-get install ruby -y
+sudo apt-get install ruby-dev -y
+sudo apt-get install gcc -y
+sudo apt-get install make -y
+sudo apt-get install automake -y
+sudo apt-get install git -y
+sudo apt-get install firefox-geckodriver -y
+sudo apt-get install unclutter -y
+sudo apt-get install libgmp-dev -y
+sudo apt-get install libgmp3-dev -y
+sudo apt-get install libpcre3 -y
+sudo apt-get install libpcre3-dev -y
+sudo apt-get install ubuntu-restricted-extras -y
+sudo apt-get install libavcodec58 -y
+sudo apt-get install ffmpeg -y
 
 echo "Installing gems"
 sudo gem install selenium-webdriver -v 4.9.0
