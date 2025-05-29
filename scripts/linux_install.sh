@@ -31,7 +31,6 @@ sudo apt-get install libpcre3 -y
 sudo apt-get install libpcre3-dev -y
 sudo apt-get install ubuntu-restricted-extras -y
 sudo apt-get install libavcodec58 -y
-sudo apt-get installffmpeg -y
 
 echo "Installing gems"
 sudo gem install selenium-webdriver -v 4.9.0
