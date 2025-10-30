@@ -71,19 +71,21 @@ function drawLine(r, type, letters, spacing, random = false) {
 
         i.src = `photos/numbers/${l}i60.bmp`
       } else if (mode == 'symbol') {
-        nums = [1, 2, 3, 4, 5, 6, 7, 9]
+        //nums = [1, 2, 3, 4, 5, 6, 7, 9]
+        nums = [1, 2, 3, 4]
 
-        foundGoodLetter = false
-        while (!foundGoodLetter) {
+        //foundGoodLetter = false
+        //while (!foundGoodLetter) {
           possible = nums[getRand(0, nums.length-1)]
 
-          if (!usedLetters.includes(possible)) {
+          //if (!usedLetters.includes(possible)) {
             l = possible
             foundGoodLetter = true
             usedLetters[usedLetters.length] = l
-          }
-        }
-        i.src  = `photos/symbols/s${l}i60.bmp`
+          //}
+        //}
+        //i.src  = `photos/symbols/s${l}i60.bmp`
+        i.src  = `photos/symbols/lei${l}.svg`
       } else if (mode == 'e') {
         i.src = 'photos/rotating_e/ei60.bmp'
 
