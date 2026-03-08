@@ -1,19 +1,64 @@
 module VisionTest
   module KeypressesSH15
-    cmode = :ltr
+    active_video_re = /.*html\/playvideo.html\#video[0-9]+\.mp4/
 
     # Size controls
-    Serial.oncode 'sh15A2' do; FirefoxCtrl.driver.execute_script 'up()' end
-    Serial.oncode 'sh15A6' do; FirefoxCtrl.driver.execute_script 'down()' end
+    Serial.oncode 'sh15A2' do
+      case FirefoxCtrl.page
+      when "table.html"
+        FirefoxCtrl.driver.execute_script 'up()'
+      when "pediatricsvideos.html"
+        FirefoxCtrl.driver.execute_script 'svup()'
+      end
+    end
+
+    Serial.oncode 'sh15A6' do
+      case FirefoxCtrl.page
+      when "table.html"
+        FirefoxCtrl.driver.execute_script 'down()'
+      when "pediatricsvideos.html"
+        FirefoxCtrl.driver.execute_script 'svdown()'
+      end
+    end
 
     # Hide button
-    Serial.oncode 'sh15A1' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
+    #Serial.oncode 'sh15A1' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
+
+    Serial.oncode 'sh15A4' do
+      case FirefoxCtrl.page
+      when "table.html"
+        # Crowd
+      when "pediatricsvideos.html"
+        selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
+        getLocationCode = "return document.getElementById(#{selectedvideo}).href"
+        location = FirefoxCtrl.driver.execute_script getLocationCode
+        FirefoxCtrl.driver.navigate.to location
+        FirefoxCtrl.page = location
+      when active_video_re
+        toggleplaybackcode = "toggle_playback()"
+        FirefoxCtrl.driver.execute_script(toggleplaybackcode)
+      end
+    end
+
+    Serial.oncode 'sh15A1' do
+      case FirefoxCtrl.page
+      when "table.html"
+        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/pediatricsvideos.html'
+        FirefoxCtrl.page = "pediatricsvideos.html"
+      when "pediatricsvideos.html"
+        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/table.html'
+        FirefoxCtrl.page = "table.html"
+      when active_video_re
+        FirefoxCtrl.driver.navigate.to 'file://' + ROOT_DIR + '/html/pediatricsvideos.html'
+        FirefoxCtrl.page = "pediatricsvideos.html"
+      end
+    end
 
     # Screensaver
     Serial.oncode 'sh15A0' do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
 
     # Randomize letters
-    Serial.oncode 'sh15A4' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
+    Serial.oncode 'sh15AD' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
 
     # Mode buttons
     Serial.oncode 'sh15A3' do
@@ -36,17 +81,9 @@ module VisionTest
     end
 
     # Line
-    Serial.oncode 'sh15A7' do; FirefoxCtrl.driver.execute_script 'tglLine()' end
+    Serial.oncode 'sh15A9' do; FirefoxCtrl.driver.execute_script 'tglLine()' end
 
     # SGL
-    Serial.oncode 'sh15A8' do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
-
-    # Shortcuts
-    Serial.oncode 'sh15A9' do; FirefoxCtrl.driver.execute_script 'fill(3, false, true)' end # 20 line
-    Serial.oncode 'sh15AA' do; FirefoxCtrl.driver.execute_script 'fill(5, false, true)' end # 30 line
-    Serial.oncode 'sh15AB' do; FirefoxCtrl.driver.execute_script 'fill(6, false, true)' end # 40 line
-    Serial.oncode 'sh15AC' do; FirefoxCtrl.driver.execute_script 'fill(8, false, true)' end # 60 line
-    Serial.oncode 'sh15AD' do; FirefoxCtrl.driver.execute_script 'fill(10, false, true)' end # 80 line
-    Serial.oncode 'sh15AE' do; FirefoxCtrl.driver.execute_script 'fill(14, false, true)' end # 200 line
+    Serial.oncode 'sh15AA' do; FirefoxCtrl.driver.execute_script 'tglSingle()' end
   end
 end

@@ -32,3 +32,12 @@ img {
   -webkit-transform: translate(-50%, -50%) scaleX(-1) !important;
   transform: translate(-50%, -50%) scaleX(-1) !important;
 }
+
+@font-face {
+    font-family: VTglyphs;
+    src: url("../fonts/VTglyphs.otf") format("opentype");
+}
+
+.vtglyphs {
+  font-family: VTglyphs;
+}
