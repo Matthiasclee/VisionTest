@@ -3,7 +3,9 @@ module VisionTest
     @driver=nil
     @page = "table.html"
     def self.start_driver
-      options = Selenium::WebDriver::Firefox::Options.new(args: ['--kiosk'])
+      args = []
+      args = ['--kiosk'] unless ARGV.include?("--stdwindow")
+      options = Selenium::WebDriver::Firefox::Options.new(args: args)
       options.add_preference('media.autoplay.default', 0) # Allow all autoplay
       options.add_preference('media.autoplay.allow-muted', true) # Allow muted autoplay
       options.add_preference('media.autoplay.blocking_policy', 0) # Adjust blocking policy
