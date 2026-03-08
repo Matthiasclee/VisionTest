@@ -2,7 +2,11 @@ var mode = 'letter'
 var sgl = false
 var cSize = 1
 var multiLine = true
+var symCrowded = false
 
+function toggleSymCrowd() {
+  symCrowded = !symCrowded
+}
 
 function getRand(min, max) {
   min = Math.ceil(min);
@@ -73,6 +77,10 @@ function drawLine(r, type, letters, spacing, random = false) {
         i.innerText = l
       } else if (mode == 'symbol') {
         syms = ["!", "#", "$", "@"]
+
+        if (symCrowded) {
+          syms = ["(", ")", "+", "_"]
+        }
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
@@ -145,7 +153,6 @@ function line(r, size, random = false) {
 }
 
 function setRowSize(row, size) {
-  console.log(size)
   x=1
 
   while (x < 7) {

@@ -27,7 +27,9 @@ module VisionTest
     Serial.oncode 'sh15A4' do
       case FirefoxCtrl.page
       when "table.html"
-        # Crowd
+        FirefoxCtrl.driver.execute_script(
+          "toggleSymCrowd(); fill(cSize)"
+        )
       when "pediatricsvideos.html"
         selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
         getLocationCode = "return document.getElementById(#{selectedvideo}).href"
