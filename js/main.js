@@ -47,10 +47,10 @@ function drawLine(r, type, letters, spacing, random = false) {
 
     if (mode != 'letter') {random = false}
 
-    i.style.marginLeft = `${spacing}px`
-    i.style.marginRight = `${spacing}px`
-    i.style.marginTop = `${spacing}px`
-    i.style.marginBottom = `${spacing}px`
+    i.style.paddingLeft = `${spacing}px`
+    i.style.paddingRight = `${spacing}px`
+    i.style.paddingTop = `${spacing}px`
+    i.style.paddingBottom = `${spacing}px`
 
     if (!random) {
       if (mode == 'letter') {
@@ -75,7 +75,7 @@ function drawLine(r, type, letters, spacing, random = false) {
 
         //foundGoodLetter = false
         //while (!foundGoodLetter) {
-          possible = nums[getRand(0, nums.length-1)]
+          possible = syms[getRand(0, nums.length-1)]
 
           //if (!usedLetters.includes(possible)) {
             l = possible
@@ -86,7 +86,7 @@ function drawLine(r, type, letters, spacing, random = false) {
         //i.src  = `photos/symbols/s${l}i60.bmp`
         i.innerText = l
       } else if (mode == 'e') {
-        i.innerText = '<img src="photos/rotating_e/ei60.bmp">'
+        i.innerText = 'E'
 
         rotations = ['0', '90', '180', '270']
 
@@ -120,7 +120,7 @@ function drawLine(r, type, letters, spacing, random = false) {
 
         i.innerText = l
     }
-    i.style.display = 'inline'
+    i.style.display = 'inline-block'
   }
 
   return true
