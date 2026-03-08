@@ -30,7 +30,7 @@ function drawLine(r, type, letters, spacing, random = false) {
 
   for (let i = 0; i < 6; i++) {
     e = document.getElementById(`r${r}c${i+1}`)
-    e.src=''
+    e.innerText=''
   }
 
   for (let i = 0; i < letters.length; i++) {
@@ -54,9 +54,9 @@ function drawLine(r, type, letters, spacing, random = false) {
 
     if (!random) {
       if (mode == 'letter') {
-        i.src = `photos/normal/${l.toLowerCase()}i60.bmp`
+        i.innerText = l
       } else if (mode == 'number') {
-        nums = [2, 3, 4, 5, 6, 7, 9]
+        nums = [0, 1, 2, 3, 4, 5, 6, 7, 9]
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
@@ -69,10 +69,9 @@ function drawLine(r, type, letters, spacing, random = false) {
           }
         }
 
-        i.src = `photos/numbers/${l}i60.bmp`
+        i.innerText = l
       } else if (mode == 'symbol') {
-        //nums = [1, 2, 3, 4, 5, 6, 7, 9]
-        nums = [1, 2, 3, 4]
+        syms = ["!", "#", "$", "@"]
 
         //foundGoodLetter = false
         //while (!foundGoodLetter) {
@@ -85,9 +84,9 @@ function drawLine(r, type, letters, spacing, random = false) {
           //}
         //}
         //i.src  = `photos/symbols/s${l}i60.bmp`
-        i.src  = `photos/symbols/lei${l}.svg`
+        i.innerText = l
       } else if (mode == 'e') {
-        i.src = 'photos/rotating_e/ei60.bmp'
+        i.innerText = '<img src="photos/rotating_e/ei60.bmp">'
 
         rotations = ['0', '90', '180', '270']
 
@@ -105,7 +104,7 @@ function drawLine(r, type, letters, spacing, random = false) {
       }
     } else {
       if (mode == 'letter') {
-        letters = ['u', 'a', 'c', 'o', 'k', 'g', 's', 'e', 'l', 'x', 't', 'b', 'n', 'v', 'z', 'r', 'f', 'p', 'd', 'h']
+        letters = ['U', 'A', 'C', 'O', 'K', 'G', 'S', 'E', 'L', 'X', 'T', 'B', 'N', 'V', 'Z', 'R', 'F', 'P', 'D', 'H']
 
         foundGoodLetter = false
         while (!foundGoodLetter) {
@@ -119,7 +118,7 @@ function drawLine(r, type, letters, spacing, random = false) {
         }
       }
 
-        i.src = `photos/normal/${l}i60.bmp`
+        i.innerText = l
     }
     i.style.display = 'inline'
   }
@@ -145,14 +144,14 @@ function line(r, size, random = false) {
 }
 
 function setRowSize(row, size) {
+  console.log(size)
   x=1
 
   while (x < 7) {
     e = document.getElementById(`r${row}c${x}`)
 
-    if (e.src.split('/')[e.src.split('/').length-1] != 'index.html') {
-      e.height = parseInt(size)
-      e.width = parseInt(size)
+    if (e.innerText != "") {
+      e.style.fontSize = parseInt(size)
     }
     x++
   }
