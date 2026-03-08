@@ -39,6 +39,7 @@ function drawLine(r, type, letters, spacing, random = false) {
   }
 
   usedLetters = []
+  lastLetter = ""
 
   for (let n = 0; n < images.length; n++) {
     i = images[n]
@@ -73,17 +74,17 @@ function drawLine(r, type, letters, spacing, random = false) {
       } else if (mode == 'symbol') {
         syms = ["!", "#", "$", "@"]
 
-        //foundGoodLetter = false
-        //while (!foundGoodLetter) {
-          possible = syms[getRand(0, nums.length-1)]
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = syms[getRand(0, syms.length-1)]
 
-          //if (!usedLetters.includes(possible)) {
+          if (lastLetter != possible) {
             l = possible
             foundGoodLetter = true
-            usedLetters[usedLetters.length] = l
-          //}
-        //}
-        //i.src  = `photos/symbols/s${l}i60.bmp`
+            lastLetter = l
+          }
+        }
+        i.src  = `photos/symbols/s${l}i60.bmp`
         i.innerText = l
       } else if (mode == 'e') {
         i.innerText = 'E'
