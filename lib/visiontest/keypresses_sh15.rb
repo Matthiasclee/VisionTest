@@ -53,7 +53,7 @@ module VisionTest
     end
 
     # Hide button
-    #Serial.oncode 'sh15A1' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
+    Serial.oncode 'sh15AE' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
 
     Serial.oncode 'sh15A4' do
       case FirefoxCtrl.page
