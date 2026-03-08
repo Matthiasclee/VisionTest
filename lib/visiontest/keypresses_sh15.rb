@@ -2,6 +2,37 @@ module VisionTest
   module KeypressesSH15
     active_video_re = /.*html\/playvideo.html\#video[0-9]+\.mp4/
 
+    def self.display_volume
+      volume = `amixer get Master | awk -F'[][]' '/%/ {print $2; exit}'`.chomp.to_i
+      toggle = `amixer get Master | awk -F'[][]' '/%/ {print $4; exit}'`.chomp
+
+      level = "medium"
+
+      if volume > 70
+        level = "high"
+      elsif toggle == "off" || volume == 0
+        level = "muted"
+      elsif volume < 30
+        level = "low"
+      end
+
+      `gdbus call --session --dest org.Cinnamon --object-path /org/Cinnamon --method org.Cinnamon.ShowOSD "{'icon': <'audio-volume-#{level}-symbolic'>, 'level': <int32 #{volume}>}"`
+    end
+
+    Serial.oncode 'sh15A8' do
+      `amixer set Master on`
+      `amixer sset Master 2%+`
+
+      display_volume
+    end
+
+    Serial.oncode 'sh15A7' do
+      `amixer set Master on`
+      `amixer sset Master 2%-`
+
+      display_volume
+    end
+
     # Size controls
     Serial.oncode 'sh15A2' do
       case FirefoxCtrl.page
