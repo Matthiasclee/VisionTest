@@ -32,7 +32,7 @@ module VisionTest
     end
 
     # Hide button
-    Serial.oncode 'sh15AE' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
+    Serial.oncode 'sh15AC' do; FirefoxCtrl.driver.execute_script 'tglSizeNum()' end
 
     Serial.oncode 'sh15A4' do
       case FirefoxCtrl.page
@@ -70,7 +70,7 @@ module VisionTest
     Serial.oncode 'sh15A0' do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
 
     # Randomize letters
-    Serial.oncode 'sh15AD' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
+    Serial.oncode 'sh15AB' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
 
     # Mode buttons
     Serial.oncode 'sh15A3' do
