@@ -75,20 +75,12 @@ module VisionTest
     # Mode buttons
     Serial.oncode 'sh15A3' do
         FirefoxCtrl.driver.execute_script "
-          if (mode == 'letter'){nmode = 'e'};
-          if (mode == 'number'){nmode = 'letter'};
-          if (mode == 'symbol'){nmode = 'number'};
-          if (mode == 'e'){nmode = 'symbol'};
-          while (mode != nmode) {tglMode()};
+          tglModeRev();
         "
     end
     Serial.oncode 'sh15A5' do
         FirefoxCtrl.driver.execute_script "
-          if (mode == 'letter'){nmode = 'number'};
-          if (mode == 'number'){nmode = 'symbol'};
-          if (mode == 'symbol'){nmode = 'e'};
-          if (mode == 'e'){nmode = 'letter'};
-          while (mode != nmode) {tglMode()};
+          tglMode();
         "
     end
 

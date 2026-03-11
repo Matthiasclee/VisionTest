@@ -19,6 +19,11 @@ function tglLine() {
 
 function tglMode() {
   if (mode == 'letter') {
+    mode = 'hotv'
+    fill(cSize)
+    return
+  }
+  if (mode == 'hotv') {
     mode = 'number'
     fill(cSize)
     return
@@ -34,6 +39,34 @@ function tglMode() {
     return
   }
   if (mode == 'e') {
+    mode = 'letter'
+    fill(cSize)
+    return
+  }
+}
+
+function tglModeRev() {
+  if (mode == 'letter') {
+    mode = 'e'
+    fill(cSize)
+    return
+  }
+  if (mode == 'e') {
+    mode = 'symbol'
+    fill(cSize)
+    return
+  }
+  if (mode == 'symbol') {
+    mode = 'number'
+    fill(cSize)
+    return
+  }
+  if (mode == 'number') {
+    mode = 'hotv'
+    fill(cSize)
+    return
+  }
+  if (mode == 'hotv') {
     mode = 'letter'
     fill(cSize)
     return

@@ -75,6 +75,24 @@ function drawLine(r, type, letters, spacing, random = false) {
         }
 
         i.innerText = l
+      } else if (mode == 'hotv') {
+        letters = ["H", "O", "T", "V"]
+
+        if (symCrowded) {
+          letters = ["%", "&", "*", "^"]
+        }
+
+        foundGoodLetter = false
+        while (!foundGoodLetter) {
+          possible = letters[getRand(0, letters.length-1)]
+
+          if (lastLetter != possible) {
+            l = possible
+            foundGoodLetter = true
+            lastLetter = l
+          }
+        }
+        i.innerText = l
       } else if (mode == 'symbol') {
         syms = ["!", "#", "$", "@"]
 
@@ -92,7 +110,6 @@ function drawLine(r, type, letters, spacing, random = false) {
             lastLetter = l
           }
         }
-        i.src  = `photos/symbols/s${l}i60.bmp`
         i.innerText = l
       } else if (mode == 'e') {
         i.innerText = 'E'
