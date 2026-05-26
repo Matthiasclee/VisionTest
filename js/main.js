@@ -297,8 +297,10 @@ function screenSaver() {
   document.getElementById('size').innerHTML = ''
   
   x=document.getElementById('r1c1')
+  // x.src = 'photos/screensaver.png'
+  // x.height = '275'
+  // x.width = '714'
   x.style.display = 'inline'
-  x.src = 'photos/screensaver.png'
-  x.height = '275'
-  x.width = '714'
+  x.style.fontSize = 100
+  x.innerText = "MEADOWS"
 }

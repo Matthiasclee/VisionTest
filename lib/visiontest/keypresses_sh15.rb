@@ -38,7 +38,7 @@ module VisionTest
       case FirefoxCtrl.page
       when "table.html"
         FirefoxCtrl.driver.execute_script(
-          "toggleSymCrowd(); fill(cSize)"
+          "fill(cSize, true)"
         )
       when "pediatricsvideos.html"
         selectedvideo = FirefoxCtrl.driver.execute_script("return getSelectedVideo()")
@@ -70,7 +70,7 @@ module VisionTest
     Serial.oncode 'sh15A0' do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
 
     # Randomize letters
-    Serial.oncode 'sh15AB' do; FirefoxCtrl.driver.execute_script 'fill(cSize, true)' end
+    Serial.oncode 'sh15AB' do; FirefoxCtrl.driver.execute_script 'toggleSymCrowd(); fill(cSize)' end
 
     # Mode buttons
     Serial.oncode 'sh15A3' do
