@@ -85,7 +85,13 @@ module VisionTest
     end
 
     # Screensaver
-    Serial.oncode 'sh15A0' do; FirefoxCtrl.driver.execute_script 'screenSaver()' end
+    Serial.oncode 'sh15A0' do
+      if File.exist?("/media/#{ENV['USER']}/VT/vtcalib")
+        Calibration.toggleMirror 
+      else
+        FirefoxCtrl.driver.execute_script 'screenSaver()'
+      end
+    end
 
     # Crowding
     Serial.oncode 'sh15AB' do; FirefoxCtrl.driver.execute_script 'toggleSymCrowd(); fill(cSize)' end
