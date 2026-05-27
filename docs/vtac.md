@@ -36,6 +36,7 @@ You are now connected to the computer with VTAC.
 * `config [pxsize|roomlength|mirrored [toggle|1|0]] [new setting]` change or view config settings
 * `name [name]` change the `id_server` name of the computer
 * `update` uses `git pull` to update the software
+* `usbupdate (directory)` uses `git pull` to update VisionTest from a USB (pulls from `/media/$USER/VT/VisionTest` by default)
 * `reboot` reboots the computer
 * `shutdown` shuts down the computer
 * `exit` ends the session
