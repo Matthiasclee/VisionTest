@@ -109,6 +109,15 @@ module VisionTest
           elsif cmd == "update"
             out = `cd #{ROOT_DIR};git pull`
             return Packet.new(:response, out)
+          elsif cmd == "usbupdate"
+            repo = "/media/#{ENV['USER']}/VT/VisionTest"
+
+            if args[0]
+              repo = args[0]
+            end
+
+            out = `cd #{ROOT_DIR}; git pull #{repo} master`
+            return Packet.new(:response, out)
           elsif cmd == "version"
             if args[0] == "master"
               out = `cd #{ROOT_DIR};git checkout master`
