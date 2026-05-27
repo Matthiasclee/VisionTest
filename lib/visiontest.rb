@@ -46,6 +46,8 @@ else
     require_relative "visiontest/dvc/dvc.rb"
   end
 
+  require_relative "visiontest/vtac/vtac.rb"
+
   begin
     VisionTest::FirefoxCtrl.start_driver
     VisionTest::Serial.start_listener unless ENV['receiver_port'] == "noserial"
