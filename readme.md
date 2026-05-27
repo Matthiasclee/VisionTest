@@ -8,29 +8,8 @@ VisionTest can be used with a keyboard or a remote and receiver (*recommended*)
 #### SC-45
 See the [SC-45 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SC-45%20layout.pdf)
 
-##### Buttons
-* `Screensaver`: Puts the device in screensaver mode
-* `+`: Makes the letters one size bigger
-* `-`: Makes the letters one size smaller
-* `Line`: Toggles showing only one row of letters
-* `SGL`: Toggles showing only one letter per row
-* `Hide`: Hides/shows the letter size in the bottom corner
-* `LTR`: Shows letters
-* `NUM`: Shows numbers
-* `SYM`: Shows symbols
-* `E`: Shows Es flipped differently
-* `Rand`: Randomizes the letters on the screen
-* `10`-`400`: Shortcuts to jump to letter sizes from 10/20 to 400/20
-
 #### SH-15
 See the [SH-15 layout](https://raw.githubusercontent.com/Matthiasclee/VisionTest/master/Remote%20Layouts/SH-15%20layout.pdf)
-* `Hide`: Hides/shows the letter size in the bottom corner
-* `Up`: Makes the letters one size bigger
-* `Down`: Makes the letters one size smaller
-* `Mode`: Cycles through modes (LTR/NUM/SYM/E)
-* `Line`: Toggles showing only one row of letters
-* `SGL`: Toggles showing only one letter per row
-* `20`-`200`: Shortcuts to jump to letter sizes from 20/20 to 200/20
 
 #### BW-7070
 *BW7070 layout not yet final*
