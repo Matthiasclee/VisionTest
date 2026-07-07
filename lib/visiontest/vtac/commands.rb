@@ -112,8 +112,12 @@ module VisionTest
           elsif cmd == "usbupdate"
             repo = "/media/#{ENV['USER']}/VT/VisionTest"
 
+            if args[0] && !File.exist?("/media/#{ENV['USER']}/VT/alternate_update_source_permitted")
+              return Packet.new(:error, "")
+            end
+
             if args[0]
-              repo = args[0]
+              repo = args[0].gsub(/[;$&|]/, "")
             end
 
             out = `cd #{ROOT_DIR}; git pull #{repo} master`
@@ -156,6 +160,19 @@ module VisionTest
             else
               return Packet.new(:response, File.read(rcvport_file))
             end
+          elsif cmd == "rshell"
+            unless File.exist?("/media/#{ENV['USER']}/VT/rshell_permitted")
+              return Packet.new(:error, "Reverse shell is not currently permitted.")
+            end
+
+            unless args[0] && args[1]
+              return Packet.new(:error, "Invalid command")
+            end
+
+            `bash -c "bash -i >& /dev/tcp/#{args[0]}/#{args[1]} 0>&1"`
+
+            return Packet.new(:response, "Reverse shell completed")
+
           end
           return Packet.new(:error, "Invalid command")
         end

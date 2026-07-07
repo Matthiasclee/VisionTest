@@ -46,6 +46,7 @@ You are now connected to the computer with VTAC.
 * `reset` Resets all config with `git restore .` command
 * `dvcenable [true|false]` Enables or disables DVC
 * `rcvport [port]` Sets or reads the receiver port
+* `rshell [ip] [port]` Opens a reverse shell to the specified host
 
 ### Version switching
 VTAC allows you to switch versions with the `version` command.
