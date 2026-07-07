@@ -165,6 +165,7 @@ function line(r, size, random = false) {
       setRowSize(r, (sizeOf20() * (size/20)))
     } else {
       setRowSize(r, (localStorage.pxsize * (124/20)))
+      sizeOf20()
     }
   }
 }
