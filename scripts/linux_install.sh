@@ -39,7 +39,7 @@ sudo gem install ffi rbtext serialport json digest
 echo "Adding user to dialout group"
 sudo usermod -a -G dialout $USER
 
-echo "Please enter the receiver tty (normally /dev/ttyUSB0): "
+echo "Please enter the receiver tty (normally /dev/ttyACM0): "
 read receiver_tty
 
 echo "Downloading VisionTest"
