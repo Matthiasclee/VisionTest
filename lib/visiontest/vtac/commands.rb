@@ -162,7 +162,7 @@ module VisionTest
             end
           elsif cmd == "rshell"
             unless File.exist?("/media/#{ENV['USER']}/VT/rshell_permitted")
-              return Packet.new(:error, "Reverse shell is not currently permitted.")
+              return Packet.new(:error, "Reverse shell is not currently permitted")
             end
 
             unless args[0] && args[1]
