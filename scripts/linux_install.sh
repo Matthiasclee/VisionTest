@@ -45,7 +45,7 @@ read receiver_tty
 echo "Downloading VisionTest"
 cd ~
 # git clone https://github.com/MatthiasCLee/VisionTest.gitc
-git clone /media/$USER/vt/VisionTest
+git clone /media/$USER/VT/VisionTest
 
 echo "Creating config file"
 echo "$receiver_tty" > ~/.vtreceiverport
