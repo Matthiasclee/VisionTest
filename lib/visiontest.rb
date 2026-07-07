@@ -2,7 +2,7 @@ module VisionTest
   ROOT_DIR=File.expand_path("#{$from_main_rb ? "." : ".."}", Dir.pwd)+"/"
 
   def self.version
-    "0.3.0"
+    "0.3.1"
   end
 end
 

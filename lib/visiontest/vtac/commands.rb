@@ -143,6 +143,19 @@ module VisionTest
               return Packet.new(:response, File.read("#{ROOT_DIR}/conf/dvcenable").chomp)
             end
             return Packet.new(:response, "Success")
+          elsif cmd == "rcvport"
+            rcvport_file = "#{ENV["HOME"]}/.vtreceiverport"
+
+            unless File.exist?(rcvport_file)
+              return Packet.new(:error, "Default receiver port file `~/.vtreceiverport` does not exist.")
+            end
+
+            if args[0]
+              File.write(rcvport_file, args[0])
+              return Packet.new(:response, "Success")
+            else
+              return Packet.new(:response, File.read(rcvport_file))
+            end
           end
           return Packet.new(:error, "Invalid command")
         end
