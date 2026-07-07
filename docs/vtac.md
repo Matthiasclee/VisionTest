@@ -45,6 +45,7 @@ You are now connected to the computer with VTAC.
 * `version [master|<version>]` Switches to a different version of VisionTest *see [version switching](#version-switching)*
 * `reset` Resets all config with `git restore .` command
 * `dvcenable [true|false]` Enables or disables DVC
+* `rcvport [port]` Sets or reads the receiver port
 
 ### Version switching
 VTAC allows you to switch versions with the `version` command.
