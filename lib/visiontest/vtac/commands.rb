@@ -113,7 +113,7 @@ module VisionTest
             repo = "/media/#{ENV['USER']}/VT/VisionTest"
 
             if args[0] && !File.exist?("/media/#{ENV['USER']}/VT/alternate_update_source_permitted")
-              return Packet.new(:error, "")
+              return Packet.new(:error, "Alternate update sources are not currently permitted")
             end
 
             if args[0]
