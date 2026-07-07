@@ -164,7 +164,7 @@ function line(r, size, random = false) {
     if (size != "calibration") {
       setRowSize(r, (sizeOf20() * (size/20)))
     } else {
-      setRowSize(r, (sizeOf20() * (124/20)))
+      setRowSize(r, (1 * (124/20)))
     }
   }
 }
